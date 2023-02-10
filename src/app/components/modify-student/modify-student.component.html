@@ -1,0 +1,28 @@
+<h1 mat-dialog-title class="modal-title">Modify student</h1>
+<div mat-dialog-content class="form-container">
+  <form [formGroup]="form" class="form" (ngSubmit)="saveChanges()">
+      <div class="input-container">
+        <label for="user">User: </label>
+        <input class="form-control" type="text" placeholder="User" formControlName="user" name="user">
+      </div>
+      <div class="input-container">
+        <label for="name">Name: </label>
+        <input class="form-control" type="text" placeholder="Name" formControlName="name" name="name">
+      </div>
+      <div class="input-container">
+        <label for="lastname">Last name: </label>
+        <input class="form-control" type="text" placeholder="Last Name" formControlName="lastname" name="lastname">
+      </div>
+      <div class="input-container">
+        <label for="grade">Grade: </label>
+        <input class="form-control" type="text" placeholder="Grade" formControlName="grade" name="grade">
+      </div>
+      <div class="input-container">
+        <label for="email">Email: </label>
+        <input class="form-control" type="text" placeholder="Email" formControlName="email" name="email">
+    </div>
+    <div class="btn-container" mat-dialog-actions >
+      <button type="submit" mat-raised-button  class="form-btn">Save</button>
+    </div>
+  </form>
+</div>

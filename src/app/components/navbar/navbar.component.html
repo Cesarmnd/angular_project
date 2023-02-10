@@ -1,0 +1,19 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="sidebar " mode="side">
+    <nav class="nav">
+      <ul class="list">
+        <li class="item">Courses</li>
+        <li class="item">Students</li>
+        <li class="item">Blog</li>
+        <li class="help">Help</li>
+      </ul>
+    </nav>    
+  </mat-drawer>
+  <button class="mx-4" mat-icon-button color="basic" (click)="drawer.toggle()">
+    <mat-icon color="accent">menu</mat-icon>
+  </button>
+  <div class="col-10 m-2 p-4">
+    <!-- <app-courses class="courses row"></app-courses> --> 
+    <app-students class="students row"></app-students>
+  </div>
+</mat-drawer-container>

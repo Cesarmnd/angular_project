@@ -1,0 +1,42 @@
+.drawer-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+}
+
+.nav {
+  background-color: #811b3d;
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 15px;
+}
+
+.list {
+  list-style: none;
+  font-size: 20px;
+  padding: 35px;
+}
+
+.item {
+  margin-bottom: 50px;
+}
+
+.item:hover,
+.item:focus,
+.help:hover,
+.help:focus {
+  cursor: pointer;
+}
+
+.help {
+  position: absolute;
+  bottom: 35px;
+}

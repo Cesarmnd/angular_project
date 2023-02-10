@@ -1,0 +1,53 @@
+.modal-title {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 25px;
+  color: #fff;
+}
+
+.form {
+  width: 100%;
+  margin: 0 auto; 
+  text-align: center;
+}
+
+.form-container {
+  margin: 50px;
+  width: 450px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+
+.label  {
+  width: fit-content;
+}
+
+input {
+  width: 70%;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+.form-btn {
+  background-color: #2bac2b;
+}
+
+.valid {
+  color: rgb(31, 153, 31);
+  margin: 0;
+  font-weight: bolder;
+}
+
+.invalid {
+  color: #cf0e0e;
+  margin: 0;
+  font-weight: bolder;
+}
+

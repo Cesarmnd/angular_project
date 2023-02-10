@@ -1,0 +1,11 @@
+.container {
+  background-color: #811b3d;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  overflow: hidden;
+}
+
+.mat-drawer-content {
+  background-color: #811b3d;
+}
