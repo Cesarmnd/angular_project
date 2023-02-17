@@ -21,6 +21,7 @@ import { AddStudentComponent } from './components/add-student/add-student.compon
 import { NameShowerPipe } from './pipes/name-shower.pipe';
 import { ColorPickerDirective } from './directives/color-picker.directive';
 import { FontSizeDirective } from './directives/font-size.directive';
+import { config, token } from './config';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FontSizeDirective } from './directives/font-size.directive';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
