@@ -53,4 +53,11 @@ export class CoursesComponent implements OnInit, OnDestroy{
       console.log('filter applied', element.value)
     })
   }
+
+  resetFilter() {
+    this.courses$ = this.courseService.getCourses();
+    this.sub = this.courses$.subscribe((courses: Course[]) => {
+      this.courses = courses;
+    })
+  }
 }
