@@ -1,0 +1,29 @@
+.welcome {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 45px;
+  margin-bottom: 35px;
+}
+
+.description {
+  margin-bottom: 35px;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.btn {
+  background-color: #2bac2b;
+  color: #fff;
+  font-size: 25px;
+  padding: 15px;
+}
