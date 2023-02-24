@@ -1,0 +1,51 @@
+p {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 35px;
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-img {
+  margin: 10px 0;
+  width: 220px;
+  height: 220px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter {
+  width: 35%;
+}
+
+.bnt-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.add-btn {
+  background-color: #2bac2b;
+  color: #fff;
+}

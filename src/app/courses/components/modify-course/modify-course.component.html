@@ -1,0 +1,52 @@
+<h1 mat-dialog-title class="modal-title">Modify course</h1>
+<div mat-dialog-content class="form-container">
+  <form [formGroup]="form" class="form" (submit)="saveChanges()">
+    <div class="row" class="input-container">
+      <label for="id">ID: </label>
+      <input class="form-control" type="text" formControlName="id" name="id">
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="name">Name: </label>
+      <input class="form-control" type="text" formControlName="name" name="name">
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="teacher">Teacher: </label>
+      <input class="form-control" type="text" formControlName="teacher" name="teacher">
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="time">Duration: </label>
+      <input class="form-control" type="text" formControlName="time" name="time">
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="img">Image: </label>
+      <input class="form-control" type="text" formControlName="img" name="img">
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="start">Start: </label>
+      <input class="form-control" matInput [matDatepicker]="startDate" formControlName="startDate" name="start">
+      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+      <mat-datepicker #startDate></mat-datepicker>
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="end">End: </label>
+      <input class="form-control" matInput [matDatepicker]="endDate" formControlName="endDate" name="end">
+      <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+      <mat-datepicker #endDate></mat-datepicker>
+    </div>
+
+    <div class="row" class="input-container">
+      <label for="sub">Suscription: </label>
+      <mat-slide-toggle formControlName="open" name="sub" color="warn">Open subscription</mat-slide-toggle>
+    </div>
+
+    <div class="btn-container" mat-dialog-actions>
+      <button mat-flat-button color="accent" type="submit" class="form-btn">Save</button>
+    </div>
+  </form>
+</div>

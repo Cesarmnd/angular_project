@@ -2,53 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoursesComponent } from './components/courses/courses.component';
-import { MaterialModule } from './material.module';
-import { StudentsComponent } from './components/students/students.component';
-import { ModifyCourseComponent } from './components/modify-course/modify-course.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatesFormatPipe } from './pipes/dates-format.pipe';
-import { BooleanToTextPipe } from './pipes/boolean-to-text.pipe';
-import { BooleanStyleDirective } from './directives/boolean-style.directive';
-import { FilterPipe } from './pipes/filter.pipe';
-import { FilterCoursePipe } from './pipes/filter-course.pipe';
-import { FilterStudentPipe } from './pipes/filter-student.pipe';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ModifyStudentComponent } from './components/modify-student/modify-student.component';
-import { AddStudentComponent } from './components/add-student/add-student.component';
-import { NameShowerPipe } from './pipes/name-shower.pipe';
-import { ColorPickerDirective } from './directives/color-picker.directive';
-import { FontSizeDirective } from './directives/font-size.directive';
-import { config, token } from './config';
+import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { CoursesModule } from './courses/courses.module';
+import { StudentsModule } from './students/students.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
-    StudentsComponent,
-    ModifyCourseComponent,
-    DatesFormatPipe,
-    BooleanToTextPipe,
-    BooleanStyleDirective,
-    FilterPipe,
-    FilterCoursePipe,
-    FilterStudentPipe,
     ToolbarComponent,
     NavbarComponent,
-    ModifyStudentComponent,
-    AddStudentComponent,
-    NameShowerPipe,
-    ColorPickerDirective,
-    FontSizeDirective
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
+    SharedModule,
+    CoursesModule,
+    StudentsModule,
     BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    FormsModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],

@@ -1,0 +1,64 @@
+<h1 mat-dialog-title class="modal-title">Add a new student</h1>
+<div mat-dialog-content class="form-container">
+  <form class="form row g-3" [formGroup]="form" (ngSubmit)="AddStudent()">
+    <div class="input-container col-md-12">
+      <label for="username" class="form-label">Username: </label>
+      <input formControlName="user" type="text" class="form-control" id="username">
+    </div>
+    <div class="valid" *ngIf="form.controls['user'].dirty && form.controls['user'].valid">
+      Good
+    </div>
+    <div class="invalid" *ngIf="form.controls['user'].dirty && form.controls['user'].errors?.['required']">
+      Username is required. 
+    </div>
+    <div class="input-container col-md-12">
+      <label for="firstName" class="form-label">First Name: </label>
+      <input formControlName="firstName" type="text" class="form-control" id="firstName">
+    </div>
+    <div class="valid" *ngIf="form.controls['firstName'].dirty && form.controls['firstName'].valid">
+      Good
+    </div>
+    <div class="invalid" *ngIf="form.controls['firstName'].dirty && form.controls['firstName'].errors?.['required']">
+     First name is required.
+    </div>
+    <div class="input-container col-md-12">
+      <label for="lastName" class="form-label">Last Name: </label>
+      <input formControlName="lastName" type="text" class="form-control" id="lastName">
+    </div>
+    <div class="valid" *ngIf="form.controls['lastName'].dirty && form.controls['lastName'].valid">
+      Good
+    </div>
+    <div class="invalid" *ngIf="form.controls['lastName'].dirty && form.controls['lastName'].errors?.['required']">
+      Last name is required.
+    </div>
+    <div class="input-container col-md-12">
+      <label for="grade" class="form-label">Grade: </label>
+      <input formControlName="grade" type="text" class="form-control" id="grade">
+    </div>
+    <div class="valid" *ngIf="form.controls['grade'].dirty && form.controls['grade'].valid">
+      Good
+    </div>
+    <div class="invalid" *ngIf="form.controls['grade'].dirty &&form.controls['grade'].errors?.['required']">
+      You must enter a value.
+    </div>
+    <div class="invalid" *ngIf="form.controls['grade'].dirty && (form.controls['grade'].errors?.['pattern'] || form.controls['grade'].errors?.['minlength'] || form.controls['grade'].errors?.['maxlength'])">
+      This is not a valid grade. It must be a number between 0-20.
+    </div>
+    <div class="input-container col-md-12">
+      <label for="inputEmail4" class="form-label">Email: </label>
+      <input formControlName="email" type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="valid" class="valid" *ngIf="form.controls['email'].dirty && form.controls['email'].valid">
+      Good
+    </div>
+    <div class="invalid" *ngIf="form.controls['email'].dirty && form.controls['email'].errors?.['required']">
+      Email is required.
+    </div>
+    <div class="invalid" *ngIf="form.controls['email'].dirty && form.controls['email'].errors?.['pattern']">
+      This is not a valid email.
+    </div>
+    <div class="col-12 btn-container">
+      <button type="submit" mat-raised-button  class="form-btn" [disabled]="form.invalid">Add student</button>
+    </div>
+  </form>
+</div>
