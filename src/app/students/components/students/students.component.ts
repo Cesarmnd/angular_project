@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Student } from 'src/app/models/students';
 import { MatTableDataSource } from '@angular/material/table';
 import { ModifyStudentComponent } from '../modify-student/modify-student.component';
@@ -6,13 +6,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from '../add-student/add-student.component';
 import { StudentsService } from '../../services/student.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.css']
 })
-export class StudentsComponent implements OnInit{
+export class StudentsComponent implements OnInit {
   students!: Student[];
   students$!: Observable<Student[]>;
   datasource!: MatTableDataSource<Student>;
@@ -20,7 +21,9 @@ export class StudentsComponent implements OnInit{
 
   constructor (
     private dialog: MatDialog,
-    private studentService: StudentsService
+    private studentService: StudentsService,
+    private route: ActivatedRoute,
+    private router: Router 
   ) {
   }
   
@@ -32,18 +35,18 @@ export class StudentsComponent implements OnInit{
     this.datasource.data = this.students
   }
 
-  add(student: Student) {
+  add(student: Student) {          
     const dialogRef = this.dialog.open(AddStudentComponent, {
       data: student
     })
-    this.datasource.data = this.students
+    dialogRef.afterClosed().subscribe(() => this.datasource.data = this.students);
   }
 
   modify(student: Student) {
     const dialogRef = this.dialog.open(ModifyStudentComponent, {
       data: student
     })
-    this.datasource.data = this.students
+    dialogRef.afterClosed().subscribe(() => this.datasource.data = this.students);
   }
 
   remove( student: Student ) {
