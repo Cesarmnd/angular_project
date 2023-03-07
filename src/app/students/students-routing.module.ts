@@ -5,7 +5,7 @@ import { ModifyStudentComponent } from './components/modify-student/modify-stude
 import { StudentsComponent } from './components/students/students.component';
 
 const routes: Routes = [
-  { path: 'students', children: [
+  { path: '', children: [
     { path: 'list', component: StudentsComponent },
     { path: 'add', component: AddStudentComponent },
     { path: 'edit', component: ModifyStudentComponent },

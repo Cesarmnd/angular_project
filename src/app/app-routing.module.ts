@@ -5,6 +5,15 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'courses',
+    loadChildren: () => import('./courses/courses.module').then((obj) => obj.CoursesModule )
+  },
+  { path: 'students',
+    loadChildren: () => import('./students/students.module').then((obj) => obj.StudentsModule )
+  },
+  { path: 'auth',
+    loadChildren: () => import('./authentication/authentication.module').then((obj) => obj.AuthenticationModule )
+  },
   { path:'', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component:NotFoundComponent}
 ]

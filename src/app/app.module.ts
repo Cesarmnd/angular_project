@@ -8,8 +8,6 @@ import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { HomeComponent } from './core/components/home/home.component';
-import { CoursesModule } from './courses/courses.module';
-import { StudentsModule } from './students/students.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -18,12 +16,10 @@ import { SharedModule } from './shared/shared.module';
     ToolbarComponent,
     NavbarComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     SharedModule,
-    CoursesModule,
-    StudentsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
