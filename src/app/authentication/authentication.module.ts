@@ -4,8 +4,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthHomeComponent } from './components/auth-home/auth-home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
-
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,8 @@ import { MaterialModule } from '../material.module';
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   providers: [
 

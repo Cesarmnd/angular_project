@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { SesionGuard } from './core/guards/sesion.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', canActivate: [SesionGuard],component: HomeComponent },
   { path: 'courses',
     loadChildren: () => import('./courses/courses.module').then((obj) => obj.CoursesModule )
   },

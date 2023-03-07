@@ -1,16 +1,18 @@
-<section class="m-5">
-  <h1>Login</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Username:</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill">
-    <mat-label>Password:</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br>
-  <mat-slide-toggle>Admin</mat-slide-toggle>
-  <br>
-  <button class="mt-4" mat-button color="accent">Login</button>
+<section class="auth-container m-5">
+  <h1 class="title">Login</h1>
+  <form class="form" [formGroup]="form" (submit)="login()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username:</mat-label>
+      <input matInput formControlName="user" >
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Password:</mat-label>
+      <input matInput formControlName="pass">
+    </mat-form-field>
+    <br>
+    <mat-slide-toggle formControlName="admin">Admin</mat-slide-toggle>
+    <br>
+    <button type="submit" class="form-btn mt-4" mat-button color="accent">Login</button>
+  </form>
 </section>
