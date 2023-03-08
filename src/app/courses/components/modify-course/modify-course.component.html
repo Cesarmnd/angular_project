@@ -13,7 +13,9 @@
 
     <div class="row" class="input-container">
       <label for="teacher">Teacher: </label>
-      <input class="form-control" type="text" formControlName="teacher" name="teacher">
+      <mat-select formControlName="teacher">
+        <mat-option *ngFor="let teacher of teacher$ | async" value="teacher"> {{ teacher.name }} </mat-option>
+      </mat-select>
     </div>
 
     <div class="row" class="input-container">

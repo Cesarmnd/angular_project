@@ -4,25 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './core/components/toolbar/toolbar.component';
-import { NavbarComponent } from './core/components/navbar/navbar.component';
-import { NotFoundComponent } from './core/components/not-found/not-found.component';
-import { HomeComponent } from './core/components/home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    NavbarComponent,
-    NotFoundComponent,
-    HomeComponent,
   ],
   imports: [
     SharedModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CoreModule
   ],
   providers: [
   ],

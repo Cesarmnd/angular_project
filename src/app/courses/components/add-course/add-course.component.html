@@ -1,10 +1,10 @@
 <h1 mat-dialog-title class="modal-title">Modify course</h1>
 <div mat-dialog-content class="form-container">
   <form [formGroup]="form" class="form" (ngSubmit)="addCourse()">
-      <div class="row" class="input-container">
+      <!-- <div class="row" class="input-container">
         <label for="id">ID: </label>
         <input class="form-control" type="text" formControlName="id" name="id" placeholder="ID">
-      </div>
+      </div> -->
 
       <div class="row" class="input-container">
         <label for="name">Name: </label>
@@ -13,7 +13,9 @@
 
       <div class="row" class="input-container">
         <label for="teacher">Teacher: </label>
-        <input class="form-control" type="text" formControlName="teacher" name="teacher" placeholder="Teacher">
+        <mat-select formControlName="teacher">
+          <mat-option *ngFor="let teacher of teacher$ | async" value="teacher"> {{ teacher.name }} </mat-option>
+        </mat-select>
       </div>
 
       <div class="row" class="input-container">
@@ -21,10 +23,10 @@
         <input class="form-control" type="text" formControlName="time" name="time" placeholder="Time">
       </div>
 
-      <div class="row" class="input-container">
+      <!-- <div class="row" class="input-container">
         <label for="img">Image: </label>
         <input class="form-control" type="text" formControlName="img" name="img" placeholder="Image">
-      </div>
+      </div> -->
 
       <div class="row" class="input-container">
         <label for="start">Start: </label>

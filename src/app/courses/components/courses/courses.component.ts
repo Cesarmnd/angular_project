@@ -43,16 +43,22 @@ export class CoursesComponent implements OnInit {
   }
   
   add() {
-    const dialogRef = this.dialog.open(AddCourseComponent)
+    const dialogRef = this.dialog.open(AddCourseComponent).afterClosed().subscribe((course: Course) => {
+      this.courses$ = this.courseService.getCourses()
+    });;
   }
 
   modify( course: Course ) {
     const dialogRef = this.dialog.open(ModifyCourseComponent, {
       data: course
-    })
+    }).afterClosed().subscribe((course: Course) => {
+      this.courses$ = this.courseService.getCourses()
+    });
   }
 
   remove( course: Course ) {
-    this.courseService.removeCourse(course)
+    this.courseService.removeCourse(course).subscribe((course: Course)=> {
+      this.courses$ = this.courseService.getCourses()
+    } )
   }
 }

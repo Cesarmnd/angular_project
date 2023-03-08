@@ -1,7 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { TeacherService } from 'src/app/core/services/teacher.service';
 import { Course } from 'src/app/models/course';
+import { teacher } from 'src/app/models/teacher';
 import { CourseService } from '../../services/course.service';
 
 @Component({
@@ -12,14 +15,17 @@ import { CourseService } from '../../services/course.service';
 
 export class ModifyCourseComponent implements OnInit {
   form!: FormGroup;
+  teacher$!: Observable<teacher[]>
   
   constructor(
     private dialogRef: MatDialogRef<ModifyCourseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course,
     private courseService: CourseService,
+    private teachers: TeacherService
   ) { }
 
   ngOnInit(): void {
+    this.teacher$ = this.teachers.getTeachers();
     this.form = new FormGroup(
       {
         id: new FormControl(this.data.id),
@@ -39,17 +45,14 @@ export class ModifyCourseComponent implements OnInit {
       id: this.form.value.id,
       name: this.form.value.name,
       img: this.form.value.img,
-      teacher: {
-        user: '',
-        name: this.form.value.teacher,
-        course: '',
-      },
+      teacher:this.form.value.teacher,
       time: this.form.value.time,
       startDate: this.form.value.startDate,
       endDate: this.form.value.endDate,
       open: this.form.value.open
     }
-    this.courseService.modifyCourse(course);
-    this.dialogRef.close();
+    this.courseService.modifyCourse(course).subscribe((course: Course) => {
+      this.dialogRef.close(course);
+    });
   } 
 }
