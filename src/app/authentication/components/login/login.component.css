@@ -22,3 +22,8 @@
   color: #fff;
   width: fit-content;
 }
+
+.form-btn:disabled {
+  background-color: #88be88;
+}
+

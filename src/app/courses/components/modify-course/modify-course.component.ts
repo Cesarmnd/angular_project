@@ -52,6 +52,7 @@ export class ModifyCourseComponent implements OnInit {
       open: this.form.value.open
     }
     this.courseService.modifyCourse(course).subscribe((course: Course) => {
+      console.log(course)
       this.dialogRef.close(course);
     });
   } 

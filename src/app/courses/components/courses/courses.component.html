@@ -22,8 +22,8 @@
         </mat-card-header>
         <img class="card-img" mat-card-image src={{course.img}} alt="">
         <p>Teacher: {{ course.teacher.name }}</p>
-        <p>Start: {{ course.startDate}}</p>
-        <p>End: {{ course.endDate}}</p>
+        <p>Start: {{ course.startDate | date}}</p>
+        <p>End: {{ course.endDate | date}}</p>
         <p>
           Registration: 
           <span [appBooleanStyle]="course.open">

@@ -21,22 +21,21 @@ export class AddCourseComponent implements OnInit {
   constructor (
     private dialogRef: MatDialogRef<AddCourseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course,
-    private activatedRoute: ActivatedRoute,
     private courseService: CourseService,
-    private teachers: TeacherService,
-    private router: Router
+    private teachers: TeacherService
   ) { }
 
   ngOnInit(): void {
     this.teacher$ = this.teachers.getTeachers()
     this.form = new FormGroup(
       {
-        name: new FormControl(),
-        teacher: new FormControl(),
-        time: new FormControl(),
-        startDate: new FormControl(),
-        endDate: new FormControl(),
-        open: new FormControl()
+        name: new FormControl(''),
+        img: new FormControl(''),
+        teacher: new FormControl({}),
+        time: new FormControl(''),
+        startDate: new FormControl(''),
+        endDate: new FormControl(''),
+        open: new FormControl(false)
       }
     )
   }

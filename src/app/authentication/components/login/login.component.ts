@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginService } from '../../services/login.service';
@@ -11,7 +11,8 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
-
+  hide = true;
+  
   constructor(
     private loginService: LoginService,
     private router: Router
@@ -21,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      user: new FormControl(),
-      pass: new FormControl(),
+      user: new FormControl('', [Validators.required]),
+      pass: new FormControl('', [Validators.required]),
       admin: new FormControl(false)
     })
   }
