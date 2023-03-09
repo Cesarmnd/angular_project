@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -29,12 +29,15 @@ export class AddCourseComponent implements OnInit {
     this.teacher$ = this.teachers.getTeachers()
     this.form = new FormGroup(
       {
-        name: new FormControl(''),
-        img: new FormControl(''),
-        teacher: new FormControl({}),
-        time: new FormControl(''),
-        startDate: new FormControl(''),
-        endDate: new FormControl(''),
+        name: new FormControl('', [ Validators.required ]),
+        img: new FormControl('', [ Validators.required ]),
+        teacher: new FormControl({}, [ Validators.required ]),
+        time: new FormControl('', 
+        [ Validators.required,
+          Validators.maxLength(2)  
+        ]),
+        startDate: new FormControl('', [ Validators.required ]),
+        endDate: new FormControl('', [ Validators.required ]),
         open: new FormControl(false)
       }
     )

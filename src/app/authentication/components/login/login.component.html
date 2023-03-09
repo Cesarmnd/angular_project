@@ -8,8 +8,8 @@
     </mat-form-field>
     <mat-form-field class="mt-3" appearance="fill">
       <mat-label>Password:</mat-label>
+      <input matInput formControlName="pass" type="password">
       <mat-error>Password required</mat-error>
-      <input matInput formControlName="pass" [type]="hide ? 'password' : 'text'">
     </mat-form-field>
     <br>
     <mat-slide-toggle formControlName="admin">Admin</mat-slide-toggle>

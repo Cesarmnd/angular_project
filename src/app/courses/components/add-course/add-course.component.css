@@ -39,3 +39,14 @@ input {
   background-color: #2bac2b;
   color: #fff;
 }
+
+.valid {
+  color: green;
+  padding: 5px 20px;
+}
+
+.invalid {
+  color: red;
+  padding: 5px;
+  margin: 0;
+}
