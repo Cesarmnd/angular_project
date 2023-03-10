@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/students';
-import { StudentsService } from '../../services/student.service';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-add-student',
@@ -17,7 +17,7 @@ export class AddStudentComponent implements OnInit{
     private dialogRef: MatDialogRef<AddStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student,
     private activatedRoute: ActivatedRoute,
-    private studentService: StudentsService
+    private studentService: StudentService
   ) {
 
   }

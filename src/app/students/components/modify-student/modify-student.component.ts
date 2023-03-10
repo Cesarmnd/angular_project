@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/models/students';
-import { StudentsService } from '../../services/student.service';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-modify-student',
@@ -16,7 +16,7 @@ export class ModifyStudentComponent implements OnInit{
   constructor(
     private dialogRef: MatDialogRef<ModifyStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student,
-    private studentService: StudentsService
+    private studentService: StudentService
   ) { }
 
 

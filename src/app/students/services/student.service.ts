@@ -4,7 +4,7 @@ import { Student } from 'src/app/models/students';
 
 @Injectable(
 )
-export class StudentsService {
+export class StudentService {
   private students$: BehaviorSubject<Student[]>
   private students: Student[] = [
     {

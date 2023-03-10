@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ModifyStudentComponent } from '../modify-student/modify-student.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from '../add-student/add-student.component';
-import { StudentsService } from '../../services/student.service';
+import { StudentService } from '../../services/student.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sesion } from 'src/app/models/sesion';
@@ -27,7 +27,7 @@ export class StudentsComponent implements OnInit {
     private router: Router, 
     private sesion: SesionService,
     private route: ActivatedRoute,
-    private studentService: StudentsService
+    private studentService: StudentService
   ) {
   }
   

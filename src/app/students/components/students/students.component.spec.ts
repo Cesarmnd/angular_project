@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { StudentService } from '../../services/student.service';
 
 import { StudentsComponent } from './students.component';
 
@@ -8,7 +13,16 @@ describe('StudentsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudentsComponent ]
+      declarations: [ StudentsComponent ],
+      imports: [
+        MaterialModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        RouterTestingModule
+      ],
+      providers: [
+        StudentService
+      ]
     })
     .compileComponents();
 

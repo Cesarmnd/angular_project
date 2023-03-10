@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TeacherService } from 'src/app/core/services/teacher.service';
 import { Course } from 'src/app/models/course';

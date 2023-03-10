@@ -6,7 +6,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { MaterialModule } from '../material.module';
 import { StudentsRoutingModule } from './students-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { StudentsService } from './services/student.service';
+import { StudentService } from './services/student.service';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { StudentsService } from './services/student.service';
     StudentsRoutingModule
   ],
   providers: [
-    StudentsService
+    StudentService
   ]
 })
 export class StudentsModule { }
