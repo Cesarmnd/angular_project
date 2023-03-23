@@ -1,11 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TestBed } from '@angular/core/testing';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MaterialModule } from 'src/app/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CourseService } from '../../services/course.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AddCourseComponent } from './add-course.component';
+import { MatSelectModule } from '@angular/material/select';
 
 describe('AddCourseComponent', () => {
 
@@ -15,7 +16,9 @@ describe('AddCourseComponent', () => {
       imports: [
         MaterialModule,
         SharedModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatDialogModule,
+        MatSelectModule
       ], 
       providers: [
         {provide: MatDialogRef, useValue: {}},

@@ -7,6 +7,8 @@ import { MaterialModule } from '../material.module';
 import { CourseService } from './services/course.service';
 import { SharedModule } from '../shared/shared.module';
 import { CoursesRoutingModule } from './courses-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { courseStateFeatureKey, reducer } from './course-state.reducer';
 
 
 
@@ -20,7 +22,8 @@ import { CoursesRoutingModule } from './courses-routing.module';
     CommonModule,
     SharedModule,
     MaterialModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    StoreModule.forFeature( courseStateFeatureKey, reducer)
   ],
   providers: [
     CourseService
