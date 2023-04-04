@@ -3,16 +3,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { SesionService } from 'src/app/core/services/sesion.service';
-import { AppState } from 'src/app/models/app.state';
-import { Course } from 'src/app/models/course';
-import { Sesion } from 'src/app/models/sesion';
-import { coursesLoaded, loadCourseState } from '../../course-state.actions';
-import { CourseState } from '../../course-state.reducer';
-import { LoadedCourseSelector, LoadingCourseSelector } from '../../course-state.selectors';
+import { Course } from 'src/app/core/models/course';
+import { Sesion } from 'src/app/core/models/sesion';
+import { deleteCourseState, loadCourseState } from '../../states/actions/course-state.actions';
+import { CourseState } from '../../states/reducers/course-state.reducer';
+import { LoadedCourseSelector, LoadingCourseSelector } from '../../states/selectors/course-state.selectors';
 import { CourseService } from '../../services/course.service';
 import { AddCourseComponent } from '../add-course/add-course.component';
 import { ModifyCourseComponent } from '../modify-course/modify-course.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SesionService } from 'src/app/core/services/sesion.service';
 
 @Component({
   selector: 'app-courses', 
@@ -32,48 +32,50 @@ export class CoursesComponent implements OnInit {
     private dialog: MatDialog,
     private sesion: SesionService,
     private courseService: CourseService,
-    private store: Store<CourseState>
+    private store: Store<CourseState>,
+    private snackBar: MatSnackBar
   ) {
 
   }
   
   ngOnInit(): void {
     this.loading$ = this.store.select(LoadingCourseSelector)
-
     this.store.dispatch(loadCourseState())
+    this.courses$ = this.store.select(LoadedCourseSelector)   // Getting data for cards
     
-    // Validating if a session is active
-    this.sesion.getSesion().subscribe( (sesion: Sesion) => {
+    this.sesion.getSesion().subscribe( (sesion: Sesion) => {  // Validating if a session is active
       if(!sesion.activeSesion) {
         this.router.navigate(['auth/login'])
       }
     })
     this.sesion$ = this.sesion.getSesion();
-    //  Storage info in store
-    this.courseService.getCourses().subscribe((courses: Course[]) => {
-    this.store.dispatch(coursesLoaded({ courses }))
-    });
-    // Getting data for cards
-    this.courses$ = this.store.select(LoadedCourseSelector)
+
   }
   
   add() {
     const dialogRef = this.dialog.open(AddCourseComponent).afterClosed().subscribe((course: Course) => {
+      this.snackBar.open(`${course.name} successfully added`, 'Close', {
+        duration: 3000
+      })
       this.courses$ = this.courseService.getCourses()
-    });;
+    });
   }
 
   modify( course: Course ) {
     const dialogRef = this.dialog.open(ModifyCourseComponent, {
       data: course
     }).afterClosed().subscribe((course: Course) => {
+      this.snackBar.open(`${course.name} successfully modified`, 'Close', {
+        duration: 3000
+      })
       this.courses$ = this.courseService.getCourses()
     });
   }
 
   remove( course: Course ) {
-    this.courseService.removeCourse(course).subscribe((course: Course)=> {
-      this.courses$ = this.courseService.getCourses()
-    } )
+    this.snackBar.open(`${course.name} successfully removed`, 'Close', {
+      duration: 3000
+    })
+    this.store.dispatch(deleteCourseState({ course }))
   }
 }

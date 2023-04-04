@@ -1,10 +1,11 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { env } from 'src/app/enviroments/enviroment';
-import { Course } from 'src/app/models/course';
+import { Course } from 'src/app/core/models/course';
 
 @Injectable()
+
 export class CourseService {
 
   

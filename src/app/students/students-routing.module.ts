@@ -4,7 +4,7 @@ import { SesionGuard } from '../core/guards/sesion.guard';
 import { StudentsComponent } from './components/students/students.component';
 
 const routes: Routes = [
-  { path: '',canActivateChild: [SesionGuard], children: [
+  { path: '', children: [ 
     { path: 'list', component: StudentsComponent },
   ]} 
 ]

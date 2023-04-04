@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromCourseState from './course-state.reducer';
+import * as fromCourseState from '../reducers/course-state.reducer';
 
 export const selectCourseState = createFeatureSelector<fromCourseState.CourseState>(
   fromCourseState.courseStateFeatureKey

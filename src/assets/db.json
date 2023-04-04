@@ -1,9 +1,64 @@
 {
   "users": [
     {
-    "user": "admin",
-    "pass": "admin",
-    "admin": true
+      "user": "admin",
+      "pass": "admin",
+      "admin": true
+    },
+    {
+      "user": "user",
+      "pass": "user",
+      "admin": false
+    }
+  ],
+  "students": [
+    {
+      "id": 4,
+      "user": "sebavgp63",
+      "name": "Sebastian",
+      "lastname": "Guevara",
+      "grade": 6,
+      "email": "sebastian.g@gmail.com"
+    },
+    {
+      "id": 8,
+      "user": "liss_j19",
+      "name": "Lisset",
+      "lastname": "Revilla",
+      "grade": 19,
+      "email": "lisset.r@gmail.com"
+    },
+    {
+      "id": 9,
+      "user": "aram_yumi5",
+      "name": "Yumi",
+      "lastname": "Morita",
+      "grade": 14,
+      "email": "yumi.m@gmail.com"
+    },
+    {
+      "id": 10,
+      "user": "isab_189",
+      "name": "Isabel",
+      "lastname": "Esquivel",
+      "grade": 6,
+      "email": "isabel.e@gmail.com"
+    },
+    {
+      "id": 11,
+      "user": "lily_26",
+      "name": "Liliana",
+      "lastname": "Figueroa",
+      "grade": 17,
+      "email": "liliana.f@gmail.com"
+    },
+    {
+      "id": 12,
+      "user": "oscar_45",
+      "name": "Oscar",
+      "lastname": "Santiesteban",
+      "grade": 11,
+      "email": "oscar.s@gmail.com"
     }
   ]
 }

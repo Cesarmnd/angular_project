@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TeacherService } from 'src/app/core/services/teacher.service';
-import { Course } from 'src/app/models/course';
-import { teacher } from 'src/app/models/teacher';
+import { Course } from 'src/app/core/models/course';
+import { teacher } from 'src/app/core/models/teacher';
 import { CourseService } from '../../services/course.service';
+import { modifyCourseState } from '../../states/actions/course-state.actions';
 
 @Component({
   selector: 'app-modify-course',
@@ -21,7 +23,8 @@ export class ModifyCourseComponent implements OnInit {
     private dialogRef: MatDialogRef<ModifyCourseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course,
     private courseService: CourseService,
-    private teachers: TeacherService
+    private teachers: TeacherService,
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -51,9 +54,8 @@ export class ModifyCourseComponent implements OnInit {
       endDate: this.form.value.endDate,
       open: this.form.value.open
     }
-    this.courseService.modifyCourse(course).subscribe((course: Course) => {
-      console.log(course)
-      this.dialogRef.close(course);
-    });
+
+    this.store.dispatch(modifyCourseState({course}))
+    this.dialogRef.close(course);
   } 
 }

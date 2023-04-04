@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Sesion } from 'src/app/models/sesion';
+import { Sesion } from 'src/app/core/models/sesion';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class SesionService {
     this.sesion$ = new BehaviorSubject<Sesion>(sesion)
   }
 
-  createSesion( sesison: Sesion) {
-    this.sesion$.next(sesison)
+  createSesion( sesion: Sesion) {
+    this.sesion$.next(sesion)
   }
 
   getSesion(): Observable<Sesion> {

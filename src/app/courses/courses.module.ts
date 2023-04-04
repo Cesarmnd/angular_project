@@ -8,7 +8,9 @@ import { CourseService } from './services/course.service';
 import { SharedModule } from '../shared/shared.module';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { courseStateFeatureKey, reducer } from './course-state.reducer';
+import { courseStateFeatureKey, reducer } from './states/reducers/course-state.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CourseEffects } from './states/effects/course-state.effects';
 
 
 
@@ -23,7 +25,8 @@ import { courseStateFeatureKey, reducer } from './course-state.reducer';
     SharedModule,
     MaterialModule,
     CoursesRoutingModule,
-    StoreModule.forFeature( courseStateFeatureKey, reducer)
+    StoreModule.forFeature( courseStateFeatureKey, reducer),
+    EffectsModule.forFeature( [CourseEffects] )
   ],
   providers: [
     CourseService

@@ -4,7 +4,7 @@ import { SesionGuard } from '../core/guards/sesion.guard';
 import { CoursesComponent } from './components/courses/courses.component';
 
 const routes: Routes = [
-  { path: '', canActivateChild: [SesionGuard], children: [
+  { path: '', children: [ // , canActivateChild: [SesionGuard]
     { path: 'list', component: CoursesComponent }
   ]} 
 ]

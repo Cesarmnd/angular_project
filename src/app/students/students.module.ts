@@ -7,6 +7,10 @@ import { MaterialModule } from '../material.module';
 import { StudentsRoutingModule } from './students-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { StudentService } from './services/student.service';
+import { EffectsModule } from '@ngrx/effects';
+import { StudentEffects } from './states/effects/student-state.effects';
+import { StoreModule } from '@ngrx/store';
+import { studentStateFeatureKey, reducer } from './states/reducers/student-state.reducer';
 
 
 @NgModule({
@@ -20,7 +24,9 @@ import { StudentService } from './services/student.service';
     CommonModule,
     SharedModule,
     MaterialModule,
-    StudentsRoutingModule
+    StudentsRoutingModule,
+    StoreModule.forFeature( studentStateFeatureKey, reducer),
+    EffectsModule.forFeature([StudentEffects])
   ],
   providers: [
     StudentService

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { Sesion } from 'src/app/models/sesion';
+import { Sesion } from 'src/app/core/models/sesion';
 import { SesionService } from '../services/sesion.service';
 
 @Injectable({
@@ -30,5 +30,4 @@ export class AdminGuard implements CanActivate {
       })
     )
   }
-  
 }

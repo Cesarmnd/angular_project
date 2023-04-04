@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { Course } from 'src/app/models/course';
+import { Course } from 'src/app/core/models/course';
 
 import { CourseService } from './course.service';
 

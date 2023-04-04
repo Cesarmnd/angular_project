@@ -1,6 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { Course } from '../models/course';
-import * as CourseStateActions from './course-state.actions';
+import { Course } from '../../../core/models/course';
+import * as CourseStateActions from '../actions/course-state.actions';
 
 export const courseStateFeatureKey = 'courseState';
 
@@ -24,6 +24,17 @@ export const reducer = createReducer(
     return { ...state , loading: false, courses }
   }),
 
+  on(CourseStateActions.addCourseState, (state, { course: Course }) => {
+    return state
+  }),
+
+  on(CourseStateActions.modifyCourseState, (state, { course: Course }) => {
+    return state
+  }),
+
+  on(CourseStateActions.deleteCourseState, (state, { course: Course }) => {
+    return  state
+  }), 
 );
 
 export const courseStateFeature = createFeature({

@@ -1,11 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TeacherService } from 'src/app/core/services/teacher.service';
-import { Course } from 'src/app/models/course';
-import { teacher } from 'src/app/models/teacher';
+import { Course } from 'src/app/core/models/course';
+import { teacher } from 'src/app/core/models/teacher';
 import { CourseService } from '../../services/course.service';
+import { addCourseState } from '../../states/actions/course-state.actions';
+import { CourseState } from '../../states/reducers/course-state.reducer';
 
 @Component({
   selector: 'app-add-course',
@@ -21,7 +24,9 @@ export class AddCourseComponent implements OnInit {
     private dialogRef: MatDialogRef<AddCourseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course,
     private courseService: CourseService,
-    private teachers: TeacherService
+    private teachers: TeacherService,
+    private store: Store<CourseState>,
+  
   ) { }
 
   ngOnInit(): void {
@@ -53,8 +58,8 @@ export class AddCourseComponent implements OnInit {
       endDate: this.form.value.endDate,
       open: this.form.value.open
     }
-    this.courseService.addCourse(course).subscribe((course:Course) => {
-      this.dialogRef.close(course);
-    });
+
+    this.store.dispatch(addCourseState( {course:course}))
+    this.dialogRef.close(course)
   } 
 }

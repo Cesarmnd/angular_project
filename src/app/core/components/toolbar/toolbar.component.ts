@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Sesion } from 'src/app/models/sesion';
 import { SesionService } from '../../services/sesion.service';
+import { Sesion } from '../../models/sesion';
 
 @Component({
   selector: 'app-toolbar',
@@ -28,5 +28,4 @@ export class ToolbarComponent implements OnInit{
     this.sesionService.logout(sesion)
     this.router.navigate(['auth/login'])
   }
-
 }

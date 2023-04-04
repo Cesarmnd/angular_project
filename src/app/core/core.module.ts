@@ -35,4 +35,5 @@ import { AppRoutingModule } from '../app-routing.module';
     HttpClientModule
   ]
 })
+
 export class CoreModule { }
