@@ -13,12 +13,44 @@
   ],
   "students": [
     {
+      "id": 2,
+      "user": "leyla",
+      "name": "Layla",
+      "lastname": "Navarro",
+      "grade": "20",
+      "email": "leylajk@gmail.com"
+    },
+    {
+      "id": 3,
+      "user": "valeria199613",
+      "name": "Valeria",
+      "lastname": "Mejia",
+      "grade": 20,
+      "email": "valeria.m@gmail.com"
+    },
+    {
       "id": 4,
       "user": "sebavgp63",
       "name": "Sebastian",
       "lastname": "Guevara",
       "grade": 6,
       "email": "sebastian.g@gmail.com"
+    },
+    {
+      "id": 5,
+      "user": "estef_85",
+      "name": "Estefania",
+      "lastname": "Sagardi",
+      "grade": 16,
+      "email": "estefania.s@gmail.com"
+    },
+    {
+      "id": 6,
+      "user": "carlos2601",
+      "name": "Carlos",
+      "lastname": "Campos",
+      "grade": 8,
+      "email": "carlos.c@gmail.com"
     },
     {
       "id": 8,

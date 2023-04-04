@@ -4,6 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/core/models/students';
 import { StudentService } from '../../services/student.service';
+import { Store } from '@ngrx/store';
+import { addStudentState } from '../../states/actions/student-state.actions';
 
 @Component({
   selector: 'app-add-student',
@@ -17,7 +19,8 @@ export class AddStudentComponent implements OnInit{
     private dialogRef: MatDialogRef<AddStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student,
     private activatedRoute: ActivatedRoute,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private store: Store
   ) {
 
   }
@@ -53,7 +56,7 @@ export class AddStudentComponent implements OnInit{
       grade: this.form.value.grade,
       email: this.form.value.email
     }
-    this.studentService.addStudent(student);
+    this.store.dispatch(addStudentState( {student:student}))
     this.dialogRef.close();
   }
 }

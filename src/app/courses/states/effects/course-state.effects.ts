@@ -32,20 +32,6 @@ export class CourseEffects {
     )
   });
 
-  deleteCourse$ = createEffect(()=> {
-    return this.action$.pipe(
-      ofType(deleteCourseState),
-      concatMap(({course}) => {
-        return this.courses.removeCourse(course).pipe(
-          map((course: Course) => {
-            // cualquier otra accion que se desee agregar
-            return loadCourseState()
-          })
-        )
-      })
-      )
-  }); 
-
   modifyCourse$ = createEffect( ()=> {
     return this.action$.pipe(
       ofType(modifyCourseState),
@@ -58,6 +44,19 @@ export class CourseEffects {
       })
     )
   });
+
+  deleteCourse$ = createEffect(()=> {
+    return this.action$.pipe(
+      ofType(deleteCourseState),
+      concatMap(({course}) => {
+        return this.courses.removeCourse(course).pipe(
+          map((course: Course) => {
+            return loadCourseState()
+          })
+        )
+      })
+      )
+  }); 
 
   constructor(    
     private courses: CourseService,

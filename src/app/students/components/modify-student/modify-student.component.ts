@@ -3,6 +3,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/students';
 import { StudentService } from '../../services/student.service';
+import { Store } from '@ngrx/store';
+import { StudentState } from '../../states/reducers/student-state.reducer';
+import { modifyStudentState } from '../../states/actions/student-state.actions';
 
 @Component({
   selector: 'app-modify-student',
@@ -16,7 +19,8 @@ export class ModifyStudentComponent implements OnInit{
   constructor(
     private dialogRef: MatDialogRef<ModifyStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private store: Store<StudentState>
   ) { }
 
 
@@ -42,7 +46,7 @@ export class ModifyStudentComponent implements OnInit{
       grade: this.form.value.grade,
       email: this.form.value.email
     }
-    this.studentService.modifyStudent(student);
+    this.store.dispatch(modifyStudentState({student}))
     this.dialogRef.close();
   } 
 }

@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { StudentState } from '../../states/reducers/student-state.reducer';
 import { Store } from '@ngrx/store';
 import { LoadedStudentSelector, LoadingStudentSelector } from '../../states/selectors/student-state.selectors';
-import { loadStudentState } from '../../states/actions/student-state.actions';
+import { deleteStudentState, loadStudentState, modifyStudentState } from '../../states/actions/student-state.actions';
 
 @Component({
   selector: 'app-students',
@@ -61,6 +61,9 @@ export class StudentsComponent implements OnInit {
 
   add(student: Student) {          
     const dialogRef = this.dialog.open(AddStudentComponent).afterClosed().subscribe((student: Student) => {
+      // this.snackBar.open(`${student.name} ${student.lastname} successfully added`, 'Close', {
+      //   duration: 3000
+      // }) ||-----> lanza error
       this.studentService.getStudents().subscribe( (students: Student[]) => {
         this.students = students
         this.datasource.data = this.students
@@ -72,6 +75,9 @@ export class StudentsComponent implements OnInit {
     const dialogRef = this.dialog.open(ModifyStudentComponent, {
       data: student
     }).afterClosed().subscribe((student: Student) => {
+      // this.snackBar.open(`${student.name} ${student.lastname} successfully removed`, 'Close', {
+      //   duration: 3000
+      // }) ||-----> lanza error
       this.studentService.getStudents().subscribe( (students: Student[]) => {
         this.students = students
         this.datasource.data = this.students
@@ -83,12 +89,7 @@ export class StudentsComponent implements OnInit {
     this.snackBar.open(`${student.name} ${student.lastname} successfully removed`, 'Close', {
       duration: 3000
     })
-    this.studentService.removeStudent(student).subscribe(( student:Student ) => {
-      this.studentService.getStudents().subscribe( (students: Student[]) => {
-        this.students = students
-        this.datasource.data = this.students
-      });
-    })
+    this.store.dispatch(deleteStudentState({ student }))
   }
 }
  
