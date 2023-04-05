@@ -4,6 +4,7 @@ import { map, concatMap } from 'rxjs/operators';
 import { addStudentState, deleteStudentState, loadStudentState, modifyStudentState, studentsLoaded } from '../actions/student-state.actions';
 import { StudentService } from '../../services/student.service';
 import { Student } from 'src/app/core/models/students';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Injectable()
@@ -19,12 +20,15 @@ export class StudentEffects {
     )
   });
 
-  addCourse$ = createEffect(() => {
+  addStudent$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(addStudentState),
       concatMap(({student}) => {
         return this.students.addStudent(student).pipe(
           map(( student: Student ) => {
+            this.snackBar.open(`${student.name} ${student.lastname} successfully added!`, 'Close', {
+              duration: 3000
+            }) 
             return loadStudentState()
           })
         )
@@ -32,12 +36,15 @@ export class StudentEffects {
     )
   });
 
-  modifyCourse$ = createEffect( ()=> {
+  modifyStudent$ = createEffect( ()=> {
     return this.actions$.pipe(
       ofType(modifyStudentState),
       concatMap(({student}) => {
         return this.students.modifyStudent(student).pipe(
           map(( student: Student ) => {
+            this.snackBar.open(`${student.name} ${student.lastname} successfully modified!`, 'Close', {
+              duration: 3000
+          }) 
             return loadStudentState()
           })
         )
@@ -45,7 +52,7 @@ export class StudentEffects {
     )
   });
 
-  deleteCourse$ = createEffect(()=> {
+  deleteStudent$ = createEffect(()=> {
     return this.actions$.pipe(
       ofType(deleteStudentState),
       concatMap(({student}) => {
@@ -60,7 +67,8 @@ export class StudentEffects {
 
   constructor(
     private students: StudentService,
-    private actions$: Actions
+    private actions$: Actions,
+    private snackBar: MatSnackBar
     ) {
 
     }

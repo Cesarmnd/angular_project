@@ -12,23 +12,23 @@
       Username is required. 
     </div>
     <div class="input-container col-md-12">
-      <label for="firstName" class="form-label">First Name: </label>
-      <input formControlName="firstName" type="text" class="form-control" id="firstName">
+      <label for="name" class="form-label">First Name: </label>
+      <input formControlName="name" type="text" class="form-control" id="name">
     </div>
-    <div class="valid" *ngIf="form.controls['firstName'].dirty && form.controls['firstName'].valid">
+    <div class="valid" *ngIf="form.controls['name'].dirty && form.controls['name'].valid">
       Good
     </div>
-    <div class="invalid" *ngIf="form.controls['firstName'].dirty && form.controls['firstName'].errors?.['required']">
+    <div class="invalid" *ngIf="form.controls['name'].dirty && form.controls['name'].errors?.['required']">
      First name is required.
     </div>
     <div class="input-container col-md-12">
-      <label for="lastName" class="form-label">Last Name: </label>
-      <input formControlName="lastName" type="text" class="form-control" id="lastName">
+      <label for="lastname" class="form-label">Last Name: </label>
+      <input formControlName="lastname" type="text" class="form-control" id="lastname">
     </div>
-    <div class="valid" *ngIf="form.controls['lastName'].dirty && form.controls['lastName'].valid">
+    <div class="valid" *ngIf="form.controls['lastname'].dirty && form.controls['lastname'].valid">
       Good
     </div>
-    <div class="invalid" *ngIf="form.controls['lastName'].dirty && form.controls['lastName'].errors?.['required']">
+    <div class="invalid" *ngIf="form.controls['lastname'].dirty && form.controls['lastname'].errors?.['required']">
       Last name is required.
     </div>
     <div class="input-container col-md-12">

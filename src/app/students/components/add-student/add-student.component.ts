@@ -1,11 +1,10 @@
 import { Component, Inject, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/core/models/students';
-import { StudentService } from '../../services/student.service';
 import { Store } from '@ngrx/store';
 import { addStudentState } from '../../states/actions/student-state.actions';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-student',
@@ -18,8 +17,6 @@ export class AddStudentComponent implements OnInit{
   constructor (
     private dialogRef: MatDialogRef<AddStudentComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Student,
-    private activatedRoute: ActivatedRoute,
-    private studentService: StudentService,
     private store: Store
   ) {
 
@@ -30,8 +27,8 @@ export class AddStudentComponent implements OnInit{
       {
         id: new FormControl(''),
         user: new FormControl('', [ Validators.required ]),
-        firstName: new FormControl('', [ Validators.required ]),
-        lastName: new FormControl('', [ Validators.required ]),
+        name: new FormControl('', [ Validators.required ]),
+        lastname: new FormControl('', [ Validators.required ]),
         grade: new FormControl('', 
         [ Validators.required, 
           Validators.pattern(/^[0-9]\d*$/),
@@ -56,6 +53,7 @@ export class AddStudentComponent implements OnInit{
       grade: this.form.value.grade,
       email: this.form.value.email
     }
+    console.log(student)
     this.store.dispatch(addStudentState( {student:student}))
     this.dialogRef.close();
   }
