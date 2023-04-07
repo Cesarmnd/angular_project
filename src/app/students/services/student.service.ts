@@ -26,7 +26,7 @@ export class StudentService {
   }
 
   addStudent( student: Student ): Observable<Student> {
-    return this.http.post<Student>(`${env.jsonURL}/students`, student , {
+    return this.http.post<Student>(`${env.jsonURL}/students`, student, {
       headers: new HttpHeaders({
         'content-type': 'application/json',
         'encoding': 'UTF-8'

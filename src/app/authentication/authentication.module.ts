@@ -5,12 +5,13 @@ import { AuthHomeComponent } from './components/auth-home/auth-home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
-import { CoreModule } from '../core/core.module';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
     AuthHomeComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,

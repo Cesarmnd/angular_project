@@ -4,7 +4,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/students';
 import { Store } from '@ngrx/store';
 import { addStudentState } from '../../states/actions/student-state.actions';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-student',
@@ -54,7 +53,7 @@ export class AddStudentComponent implements OnInit{
       email: this.form.value.email
     }
     console.log(student)
-    this.store.dispatch(addStudentState( {student:student}))
+    this.store.dispatch(addStudentState( {student:student} ))
     this.dialogRef.close();
   }
 }

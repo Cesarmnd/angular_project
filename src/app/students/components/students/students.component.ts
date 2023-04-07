@@ -55,7 +55,7 @@ export class StudentsComponent implements OnInit {
     }) // Passing students to table
   }
 
-  add(student: Student) {          
+  add() {          
     const dialogRef = this.dialog.open(AddStudentComponent).afterClosed().subscribe((student: Student) => {
       this.studentService.getStudents().subscribe( (students: Student[]) => {
         this.students = students

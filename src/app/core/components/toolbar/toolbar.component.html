@@ -5,7 +5,7 @@
     <button routerLink="../auth/login" *ngIf="!sesion.activeUser" mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       Login
     </button>
-    <button mat-button aria-label="Example icon-button with share icon" *ngIf="!sesion.activeUser">
+    <button routerLink="../auth/signup" mat-button aria-label="Example icon-button with share icon" *ngIf="!sesion.activeUser">
       Signup  
     </button>
     <button mat-button aria-label="Example icon-button with share icon" *ngIf="sesion.activeUser" (click)="logout()">

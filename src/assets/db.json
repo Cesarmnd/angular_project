@@ -1,14 +1,22 @@
 {
   "users": [
     {
+      "id": 0,
       "user": "admin",
       "pass": "admin",
       "admin": true
     },
     {
+      "id": 1,
       "user": "user",
       "pass": "user",
       "admin": false
+    },
+    {
+      "user": "cesar",
+      "pass": "cesar",
+      "admin": false,
+      "id": 2
     }
   ],
   "students": [
@@ -34,7 +42,7 @@
       "name": "Layla",
       "lastname": "Navarro",
       "grade": 27,
-      "email": "leylajk@gmail.com"
+      "email": "leylaln@gmail.com"
     },
     {
       "id": 3,
@@ -112,6 +120,14 @@
       "id": 13,
       "user": "312321",
       "grade": "10",
+      "email": "cesar@gmail.com"
+    },
+    {
+      "id": 14,
+      "user": "cesar123",
+      "name": "César",
+      "lastname": "Niño",
+      "grade": "18",
       "email": "cesar@gmail.com"
     }
   ]

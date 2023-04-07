@@ -1,0 +1,25 @@
+<section class="auth-container m-5">
+  <h1 class="title">Sign Up</h1>
+  <form class="form" [formGroup]="form" (submit)="signup()" > 
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="user" >
+      <mat-error>Username required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mt-3" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input (input)="passCheck()" matInput formControlName="pass" type="password">
+      <mat-error>Password required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="mt-3" appearance="fill">
+      <mat-label>Cormfirm password</mat-label>
+      <input (input)="passCheck()" matInput formControlName="confirmpass" type="password">
+      <mat-error *ngIf="this.form.controls['confirmpass'].hasError('required')">Required</mat-error>
+      <mat-error *ngIf="this.form.controls['confirmpass'].invalid && !this.form.controls['confirmpass'].hasError('required')">Passwords don't match!</mat-error>
+    </mat-form-field>
+    <br>
+    <button type="submit" class="form-btn mt-4" mat-button color="accent" [disabled]="form.invalid">Sign Up</button> 
+  </form>
+  <div class="mt-3">
+  </div>
+</section>
