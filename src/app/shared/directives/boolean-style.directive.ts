@@ -16,7 +16,7 @@ export class BooleanStyleDirective implements OnInit{
     this.rederer.setStyle(
       this.element.nativeElement, 
       'color',
-      this.value ? 'red' : 'green'
+      this.value ? '#08FF3D' : '#FF0101'
       )
   }
 

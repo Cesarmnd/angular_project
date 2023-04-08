@@ -8,6 +8,13 @@ h1 {
   margin-bottom: 35px;
 }
 
+.card-container {
+  max-width: 371px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   width: 300px;
   height: 500px;
@@ -28,16 +35,6 @@ h1 {
   height: 220px;
 }
 
-.filter-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.filter {
-  width: 35%;
-}
-
 .bnt-container {
   display: flex;
   justify-content: center;
@@ -45,8 +42,9 @@ h1 {
   margin: 25px 0;
 }
 
+
 .add-btn {
   background-color: #2bac2b;
   color: #fff;
   margin: 0 auto;
-}
+} 

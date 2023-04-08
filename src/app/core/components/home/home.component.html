@@ -1,8 +1,9 @@
 <section class="welcome"> 
   <h1 class="title">Welcome</h1>
   <p class="description">Please, choose between both of those temporaty available content</p>
-  <div class="btn-container">
+  <div class="btn-container" *ngIf="sesion$ | async as sesion">
     <button routerLink="../courses/list" class="btn" color="accent">Course list</button>
+    <button routerLink="../users/list" class="btn" color="accent" *ngIf="sesion.activeUser?.admin">Users list</button>
     <button routerLink="../students/list" class="btn" color="accent">Student list</button>
   </div>
 </section>                  

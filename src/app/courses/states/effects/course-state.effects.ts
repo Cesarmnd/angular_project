@@ -4,6 +4,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { addCourseState, coursesLoaded, deleteCourseState, loadCourseState, modifyCourseState } from "../actions/course-state.actions";
 import { concatMap, map } from "rxjs";
 import { Course } from "src/app/core/models/course";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
 
@@ -25,6 +26,9 @@ export class CourseEffects {
       concatMap(({ course }) => {
         return this.courses.addCourse(course).pipe(
           map((course: Course) => {
+            this.snackBar.open(`${course.name} successfully added`, 'Close', {
+              duration: 3000
+            })
             return loadCourseState()
           })
         )
@@ -38,6 +42,9 @@ export class CourseEffects {
       concatMap( ( {course} ) => {
         return this.courses.modifyCourse(course).pipe(
           map(( course: Course ) => {
+            this.snackBar.open(`${course.name} successfully modified`, 'Close', {
+              duration: 3000
+            })
             return loadCourseState()
           })
         )
@@ -60,7 +67,8 @@ export class CourseEffects {
 
   constructor(    
     private courses: CourseService,
-    private action$: Actions
+    private action$: Actions,
+    private snackBar: MatSnackBar
     ){
 
   }

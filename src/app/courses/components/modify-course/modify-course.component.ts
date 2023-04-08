@@ -35,7 +35,6 @@ export class ModifyCourseComponent implements OnInit {
         name: new FormControl(this.data.name),
         img: new FormControl(this.data.img),
         teacher: new FormControl(this.data.teacher.name),
-        time: new FormControl(this.data.time),
         startDate: new FormControl(this.data.startDate),
         endDate: new FormControl(this.data.endDate),
         open: new FormControl(this.data.open)
@@ -49,7 +48,6 @@ export class ModifyCourseComponent implements OnInit {
       name: this.form.value.name,
       img: this.form.value.img,
       teacher:this.form.value.teacher,
-      time: this.form.value.time,
       startDate: this.form.value.startDate,
       endDate: this.form.value.endDate,
       open: this.form.value.open

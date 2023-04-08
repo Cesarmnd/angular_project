@@ -24,13 +24,12 @@ export class AddStudentComponent implements OnInit{
     let emailVaidator: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
     this.form = new FormGroup(
       {
-        id: new FormControl(''),
         user: new FormControl('', [ Validators.required ]),
         name: new FormControl('', [ Validators.required ]),
         lastname: new FormControl('', [ Validators.required ]),
         grade: new FormControl('', 
         [ Validators.required, 
-          Validators.pattern(/^[0-9]\d*$/),
+          Validators.pattern(/^(0|[1-9]|1\d|20)$/),
           Validators.minLength(1),
           Validators.maxLength(2) 
         ]),
@@ -38,21 +37,20 @@ export class AddStudentComponent implements OnInit{
           [ Validators.required, 
             Validators.email, 
             Validators.pattern(emailVaidator) 
-          ])
+          ]
+        )
       }
     )
   }
 
   AddStudent() {
     let student: Student = {
-      id: this.form.value.id,
       user: this.form.value.user,
       name: this.form.value.name,
       lastname: this.form.value.lastname,
       grade: this.form.value.grade,
       email: this.form.value.email
     }
-    console.log(student)
     this.store.dispatch(addStudentState( {student:student} ))
     this.dialogRef.close();
   }

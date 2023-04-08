@@ -53,7 +53,6 @@ export class AddCourseComponent implements OnInit {
       name: this.form.value.name,
       img: this.form.value.img,
       teacher: this.form.value.teacher,
-      time: this.form.value.time,
       startDate: this.form.value.startDate,
       endDate: this.form.value.endDate,
       open: this.form.value.open

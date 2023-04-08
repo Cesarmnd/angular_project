@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { User } from 'src/app/core/models/user';
 import { confirmPassCheck } from 'src/app/shared/validators/password-validator';
-import { SignupService } from '../../services/signup.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { addUserState } from '../../states/actions/user-state.actions';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class SignupComponent implements OnInit{
+export class AddUserComponent implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private router: Router,
-    private signUp: SignupService,
-    private snackBar: MatSnackBar
-  ) {
+    private dialogRef: MatDialogRef<AddUserComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User,
+    private store: Store
+  ){
 
   }
 
@@ -38,20 +38,14 @@ export class SignupComponent implements OnInit{
     }
   }
 
-  signup(){
+  addUser() {
     let user: User = {
       user: this.form.value.user,
       pass: this.form.value.pass,
       admin: false,
     }
 
-    this.signUp.addUser(user).subscribe(data => {
-      this.snackBar.open(`User ${user.user} successfully created!`, 'Close', {
-        duration: 3000
-      }) 
-      this.router.navigate(['./auth/login'])
-      console.log(data)
-    })
+    this.store.dispatch(addUserState({ user:user }))
+    this.dialogRef.close()
   }
-
 }

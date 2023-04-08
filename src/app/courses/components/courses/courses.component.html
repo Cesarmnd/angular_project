@@ -1,10 +1,4 @@
 <h1>Courses</h1>
-<div class="row filter-container">
-  <mat-form-field class="filter">
-    <mat-label>Filter:</mat-label>
-    <input type="text" matInput [(ngModel)]="filter">
-  </mat-form-field>
-</div>
 <ng-container *ngIf="sesion$ | async as sesion">
   <div class="bnt-container" *ngIf="!(loading$ | async)">
     <button *ngIf="sesion.activeUser?.admin" class="add-btn" mat-flat-button color="accent" (click)="add()">
@@ -18,13 +12,12 @@
   </div>
 
   <div class="row" *ngIf="!(loading$ | async)">
-    <div class="col" *ngFor="let course of courses$ | async">
+    <div class="card-container col" *ngFor="let course of courses$ | async">
       <mat-card class="card">
         <mat-card-header>
           <mat-card-title class="card-title"> {{ course.name }}</mat-card-title>
-          <mat-card-subtitle>Lenght: {{ course.time }} months</mat-card-subtitle>
         </mat-card-header>
-        <img class="card-img" mat-card-image src={{course.img}} alt="">
+        <img class="card-img" mat-card-image src={{course.img}} alt="card-img">
         <p>Teacher: {{ course.teacher.name }}</p>
         <p>Start: {{ course.startDate | date}}</p>
         <p>End: {{ course.endDate | date}}</p>

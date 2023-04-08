@@ -13,27 +13,25 @@
       "admin": false
     },
     {
-      "user": "cesar",
-      "pass": "cesar",
-      "admin": false,
-      "id": 2
+      "id": 2,
+      "user": "Cesar",
+      "pass": "admin.123",
+      "admin": true
+    },
+    {
+      "id": 3,
+      "user": "admin2",
+      "pass": "123",
+      "admin": false
     }
   ],
   "students": [
     {
-      "id": 0,
-      "user": "lucia1995",
-      "name": "Lucia",
-      "lastname": "Gallardo",
-      "grade": 23,
-      "email": "luzfg.m@gmail.com"
-    },
-    {
       "id": 1,
-      "user": "rebeca25",
+      "user": "rebeca2532",
       "name": "Rebeca",
       "lastname": "Estrada",
-      "grade": 22,
+      "grade": "12",
       "email": "reb_est.m@gmail.com"
     },
     {
@@ -41,7 +39,7 @@
       "user": "leyla24",
       "name": "Layla",
       "lastname": "Navarro",
-      "grade": 27,
+      "grade": "17",
       "email": "leylaln@gmail.com"
     },
     {
@@ -49,7 +47,7 @@
       "user": "valeria1996",
       "name": "Valeria",
       "lastname": "Mejia",
-      "grade": 20,
+      "grade": "12",
       "email": "valeria.m@gmail.com"
     },
     {

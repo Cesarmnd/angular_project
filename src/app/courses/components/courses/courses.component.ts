@@ -30,10 +30,10 @@ export class CoursesComponent implements OnInit {
   constructor(
     private router: Router,
     private dialog: MatDialog,
+    private snackBar: MatSnackBar,
     private sesion: SesionService,
-    private courseService: CourseService,
     private store: Store<CourseState>,
-    private snackBar: MatSnackBar
+    private courseService: CourseService,
   ) {
 
   }
@@ -54,9 +54,6 @@ export class CoursesComponent implements OnInit {
   
   add() {
     const dialogRef = this.dialog.open(AddCourseComponent).afterClosed().subscribe((course: Course) => {
-      this.snackBar.open(`${course.name} successfully added`, 'Close', {
-        duration: 3000
-      })
       this.courses$ = this.courseService.getCourses()
     });
   }
@@ -65,9 +62,6 @@ export class CoursesComponent implements OnInit {
     const dialogRef = this.dialog.open(ModifyCourseComponent, {
       data: course
     }).afterClosed().subscribe((course: Course) => {
-      this.snackBar.open(`${course.name} successfully modified`, 'Close', {
-        duration: 3000
-      })
       this.courses$ = this.courseService.getCourses()
     });
   }

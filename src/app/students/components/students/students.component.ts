@@ -21,8 +21,8 @@ import { LoadedStudentSelector, LoadingStudentSelector } from '../../states/sele
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+  sesion$!: Observable<Sesion>;
   students!: Student[];
-  sesion$!: Observable<Sesion>
   datasource!: MatTableDataSource<Student>;
   columns: string[] = ['user', 'name', 'grade', 'email', 'actions'];
   loading$!: Observable<Boolean>

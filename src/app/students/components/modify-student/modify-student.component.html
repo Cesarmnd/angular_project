@@ -22,7 +22,7 @@
         <input class="form-control" type="text" placeholder="Email" formControlName="email" name="email">
     </div>
     <div class="btn-container" mat-dialog-actions >
-      <button type="submit" mat-raised-button  class="form-btn">Save</button>
+      <button type="submit" mat-raised-button  class="form-btn" [disabled]="form.invalid">Save</button>
     </div>
   </form>
 </div>

@@ -6,6 +6,19 @@
   overflow: hidden;
 }
 
+.content-container {
+  margin: 0;
+  display: flex;
+  color: #fff;
+  position: relative;
+  background-color: #353535;
+}
+
 .mat-drawer-content {
   background-color: #811b3d;
+}
+
+.content {
+  width: 100vw;
+  padding-top: 25px;
 }

@@ -1,0 +1,47 @@
+<h1 class="list-title">User List</h1>
+<ng-container *ngIf="sesion$ | async as sesion">
+  <div class="bnt-container">
+    <button *ngIf="sesion.activeUser?.admin" class="add-btn" mat-flat-button color="accent" (click)="add()">
+      Add user
+    </button>
+  </div>
+</ng-container>
+<div class="container">
+  <div *ngIf="loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-container *ngIf="sesion$ | async as sesion">
+  <div class="container-table">
+    <table mat-table [dataSource]="datasource" >
+        <!-- User -->
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef="" [appFontSize]="20">Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.user }}</td>
+      </ng-container>
+        <!-- Password -->
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef="" [appFontSize]="20">Password</th>
+        <td mat-cell *matCellDef="let element">{{ element.pass }}</td>
+      </ng-container>
+          <!-- Admin -->
+      <ng-container matColumnDef="admin">
+        <th mat-header-cell *matHeaderCellDef="" [appFontSize]="20">Admin</th>
+        <td mat-cell *matCellDef="let element" [appBooleanStyle]="element.admin">{{ element.admin | booleanToText: 'Yes': 'No'}}</td>
+      </ng-container>
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef="" [appFontSize]="20">Actions</th>
+            <td mat-cell *matCellDef="let element">
+              <button *ngIf="sesion.activeUser?.admin" mat-icon-button color="accent" (click)="modify(element)">
+                <mat-icon class="edit-icon">edit</mat-icon>
+              </button>
+              <button *ngIf="sesion.activeUser?.admin" mat-icon-button color="warn" (click)="remove(element)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+        </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+  </div>
+</ng-container>

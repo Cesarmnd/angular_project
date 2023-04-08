@@ -5,12 +5,15 @@ import { NotFoundComponent } from './core/components/not-found/not-found.compone
 import { SesionGuard } from './core/guards/sesion.guard';
 
 const routes: Routes = [
-  { path: 'home', canActivate: [SesionGuard],component: HomeComponent },
+  { path: 'home', canActivate: [SesionGuard], component: HomeComponent },
   { path: 'courses',
     loadChildren: () => import('./courses/courses.module').then((obj) => obj.CoursesModule )
   },
   { path: 'students',
     loadChildren: () => import('./students/students.module').then((obj) => obj.StudentsModule )
+  },
+  { path: 'users',
+  loadChildren: () => import('./users/users.module').then((obj) => obj.UsersModule )
   },
   { path: 'auth',
     loadChildren: () => import('./authentication/authentication.module').then((obj) => obj.AuthenticationModule )

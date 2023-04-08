@@ -1,0 +1,44 @@
+.container-table {
+  width: 85%;
+  height: 100vh;
+}
+
+table {
+  width: 100%;
+}
+
+.add-icon {
+  color: #04bd04;
+}
+
+.edit-icon {
+  color: #7fa4f5;
+}
+
+td,
+th {
+  text-align: center;
+}
+
+.list-title {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 35px;
+}
+
+table {
+  margin-left: 150px;
+}
+
+.bnt-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.add-btn {
+  background-color: #2bac2b;
+  color: #fff;
+  margin: 0 auto;
+}

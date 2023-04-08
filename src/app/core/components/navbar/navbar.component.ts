@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Sesion } from '../../models/sesion';
+import { SesionService } from '../../services/sesion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  sesion$!: Observable<Sesion>;
   showFiller = false;
 
   constructor (
-    private router: Router
+    private sesion: SesionService
   ) {
 
+  }
+
+  ngOnInit(): void {
+    this.sesion$ = this.sesion.getSesion();
   }
 }

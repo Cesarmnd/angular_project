@@ -1,13 +1,15 @@
 .drawer-container {
-  height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  min-height: 100vh;
+  height: 100%;
+  width: fit-content;
+  background-color: transparent;
 }
 
 .sidebar {
   width: 250px;
+  border: 0;
+  outline: 0;
 }
 
 .nav {
@@ -45,4 +47,8 @@
 .courses {
   margin-left: 150px;
   margin-bottom: 50px;
+}
+
+.sidebar-btn {
+  position: absolute;
 }

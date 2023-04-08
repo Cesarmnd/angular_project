@@ -1,21 +1,19 @@
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="sidebar " mode="side">
-    <nav class="nav">
+  <mat-drawer #drawer class="sidebar " mode="side" >
+    <nav class="nav" *ngIf="sesion$ | async as sesion">
       <ul class="list">
         <li class="item" routerLink="home">Home</li>
         <li class="item" routerLink="courses/list">Courses</li>
         <li class="item" routerLink="students/list">Students</li>
-        <li class="item" >Blog</li>
-        <li class="help" >Help</li>
+        <li class="item" routerLink="users/list" *ngIf="sesion.activeUser?.admin">Users</li>
+        <li class="item">Blog</li>
+        <li class="help">Help</li>
       </ul>
     </nav>    
   </mat-drawer>
-  <button class="mx-4" mat-icon-button color="basic" (click)="drawer.toggle()">
+  <button class="mx-4" mat-icon-button color="basic" (click)="drawer.toggle()" *ngIf="sesion$ | async as sesion">
     <mat-icon color="accent">menu</mat-icon>
   </button>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
 </mat-drawer-container>
 
 
