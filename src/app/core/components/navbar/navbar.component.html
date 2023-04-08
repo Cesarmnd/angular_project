@@ -11,7 +11,7 @@
       </ul>
     </nav>    
   </mat-drawer>
-  <button class="mx-4" mat-icon-button color="basic" (click)="drawer.toggle()" *ngIf="sesion$ | async as sesion">
+  <button class="sidebar-btn mx-4" mat-icon-button color="basic" (click)="drawer.toggle()" *ngIf="sesion$ | async as sesion">
     <mat-icon color="accent">menu</mat-icon>
   </button>
 </mat-drawer-container>

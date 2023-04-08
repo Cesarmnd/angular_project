@@ -1,7 +1,7 @@
 <div class="container" >
-  <app-toolbar class="row p-0 m-0"></app-toolbar>
-  <section class="content-container">
-    <app-navbar class="navbar row p-0"></app-navbar>
+  <app-toolbar class="toolbar row p-0 m-0"></app-toolbar>
+  <section class="content-container" *ngIf="sesion$ | async as sesion">
+    <app-navbar class="navbar row p-0" *ngIf="sesion.activeUser" ></app-navbar>
     <div class="content">
       <router-outlet></router-outlet>
     </div>

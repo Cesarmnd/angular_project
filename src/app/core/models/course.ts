@@ -4,7 +4,7 @@ export interface Course {
   id: string,
   name: string,
   img: string,
-  teacher: teacher,
+  teacher: teacher ,
   startDate: Date,
   endDate: Date,
   open: boolean

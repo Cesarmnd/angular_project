@@ -1,9 +1,13 @@
 .container {
+  display: flex;
+  flex-direction: column;
   background-color: #811b3d;
   margin: 0;
   padding: 0;
+  min-height: 100%;
   max-width: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .content-container {
@@ -14,11 +18,16 @@
   background-color: #353535;
 }
 
-.mat-drawer-content {
-  background-color: #811b3d;
+.toolbar {
+  height: 8vh;
 }
 
 .content {
+  min-height: 92vh;
   width: 100vw;
   padding-top: 25px;
+}
+
+.mat-drawer-content {
+  background-color: #811b3d;
 }

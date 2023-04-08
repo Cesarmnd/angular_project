@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+.toolbar {
+  height: 100%;
+} 
+
 .logo {
   height: 50px;
 }

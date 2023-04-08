@@ -17,12 +17,6 @@
       "user": "Cesar",
       "pass": "admin.123",
       "admin": true
-    },
-    {
-      "id": 3,
-      "user": "admin2",
-      "pass": "123",
-      "admin": false
     }
   ],
   "students": [
@@ -113,12 +107,6 @@
       "lastname": "Santiesteban",
       "grade": 11,
       "email": "oscar.s@gmail.com"
-    },
-    {
-      "id": 13,
-      "user": "312321",
-      "grade": "10",
-      "email": "cesar@gmail.com"
     },
     {
       "id": 14,

@@ -1,6 +1,7 @@
 .container-table {
   width: 85%;
-  height: 100vh;
+  height: 100%;
+  margin-bottom: 20px;
 }
 
 table {
