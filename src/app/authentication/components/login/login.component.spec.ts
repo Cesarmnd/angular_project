@@ -4,6 +4,7 @@ import { MaterialModule } from 'src/app/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { LoginComponent } from './login.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -15,7 +16,8 @@ describe('LoginComponent', () => {
       imports: [
         MaterialModule,
         SharedModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

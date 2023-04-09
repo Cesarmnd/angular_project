@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
+import { MaterialModule } from 'src/app/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -8,7 +12,13 @@ describe('SignupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignupComponent ]
+      declarations: [ SignupComponent ],
+      imports: [
+        MaterialModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
 

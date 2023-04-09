@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StudentService } from '../../services/student.service';
 
 import { AddStudentComponent } from './add-student.component';
+import { Store, StoreModule } from '@ngrx/store';
 
 describe('AddStudentComponent', () => {
   let component: AddStudentComponent;
@@ -19,11 +20,13 @@ describe('AddStudentComponent', () => {
         MaterialModule,
         SharedModule,
         BrowserAnimationsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        StoreModule.forRoot({})
       ], 
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: MAT_DIALOG_DATA, useValue: []},
+        {provide: Store},
         StudentService
       ]
     })

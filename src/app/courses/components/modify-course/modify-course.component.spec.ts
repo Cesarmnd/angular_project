@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CourseService } from '../../services/course.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ModifyCourseComponent } from './modify-course.component';
+import { Store, StoreModule } from '@ngrx/store';
 
 
 describe('ModifyCourseComponent', () => {
@@ -14,12 +15,14 @@ describe('ModifyCourseComponent', () => {
       imports: [
         MaterialModule,
         SharedModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        StoreModule.forRoot({})
       ], 
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: MAT_DIALOG_DATA, useValue: []},
-        CourseService
+        CourseService,
+        {provide: Store},
       ]
     })
     .compileComponents();

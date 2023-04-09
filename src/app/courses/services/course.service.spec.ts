@@ -41,7 +41,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": false,
-       "time": 3,
        "id": "11"
       },
       {
@@ -56,7 +55,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": true,
-       "time": 3,
        "id": "12"
       },
       {
@@ -71,7 +69,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": false,
-       "time": 6,
        "id": "13"
       },
       {
@@ -86,7 +83,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": false,
-       "time": 2,
        "id": "14"
       },
       {
@@ -101,7 +97,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": true,
-       "time": 5,
        "id": "15"
       },
       {
@@ -116,7 +111,6 @@ describe('CourseService', () => {
        "startDate": date,
        "endDate": date,
        "open": false,
-       "time": 3,
        "id": "16"
       }
     ];

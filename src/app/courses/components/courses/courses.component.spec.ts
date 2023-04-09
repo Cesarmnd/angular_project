@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { of } from 'rxjs';
+import { Store, StoreModule } from '@ngrx/store';
 
 describe('TestCoursesComponent', () => {
   let component: CoursesComponent;
@@ -26,9 +27,11 @@ describe('TestCoursesComponent', () => {
         HttpClientTestingModule,
         BrowserAnimationsModule,
         MatDialogModule,
-        MatSelectModule
+        MatSelectModule,
+        StoreModule.forRoot({})
       ],
       providers: [
+        {provide: Store},
         CourseService
       ]
     })
@@ -70,7 +73,6 @@ describe('TestCoursesComponent', () => {
         startDate: date,
         endDate: date,
         open: false,
-        time: 3,
         id: "11"
        }
     )

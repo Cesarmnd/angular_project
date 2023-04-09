@@ -6,6 +6,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StudentService } from '../../services/student.service';
 
 import { StudentsComponent } from './students.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -18,9 +20,12 @@ describe('StudentsComponent', () => {
         MaterialModule,
         SharedModule,
         BrowserAnimationsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        StoreModule.forRoot({}),
+        HttpClientTestingModule
       ],
       providers: [
+        {provide: Store},
         StudentService
       ]
     })

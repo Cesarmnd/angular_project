@@ -7,6 +7,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AddCourseComponent } from './add-course.component';
 import { MatSelectModule } from '@angular/material/select';
+import { Store, StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AddCourseComponent', () => {
 
@@ -14,15 +16,18 @@ describe('AddCourseComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ AddCourseComponent ],
       imports: [
+        BrowserAnimationsModule,
         MaterialModule,
         SharedModule,
         HttpClientTestingModule,
         MatDialogModule,
-        MatSelectModule
+        MatSelectModule,
+        StoreModule.forRoot({})
       ], 
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: MAT_DIALOG_DATA, useValue: []},
+        {provide: Store},
         CourseService
       ]
     }).compileComponents();
@@ -56,17 +61,14 @@ describe('AddCourseComponent', () => {
     const name = form.controls['name']
     const img = form.controls['img']
     const teacher = form.controls['teacher']
-    const time = form.controls['time']
     const startDate = form.controls['startDate']
     const endDate = form.controls['endDate']
 
     name.setValue('Angular') 
     img.setValue('img')
     teacher.setValue('Oscar')
-    time.setValue(3)
     startDate.setValue(new Date())
     endDate.setValue(new Date())
-    // open is not required <-------
 
     expect(component.form.valid).toBeTrue()
   })
