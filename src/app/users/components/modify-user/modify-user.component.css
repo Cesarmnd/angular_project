@@ -1,18 +1,18 @@
 .modal-title {
   text-align: center;
   margin-top: 25px;
-  font-size: 25px;
-}
-
-.form-container {
-  margin: 50px;
-  width: 450px;
+  font-size: 30px;
 }
 
 .form {
   width: 100%;
   margin: 0 auto; 
   text-align: center;
+}
+
+.form-container {
+  margin: 20px 50px;
+  width: 300px;
 }
 
 .input-container {

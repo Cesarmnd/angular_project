@@ -1,63 +1,34 @@
 <h1 mat-dialog-title class="modal-title">Add a new student</h1>
 <div mat-dialog-content class="form-container">
-  <form class="form row g-3" [formGroup]="form" (ngSubmit)="AddStudent()">
-    <div class="input-container col-md-12">
-      <label for="username" class="form-label">Username: </label>
-      <input formControlName="user" type="text" class="form-control" id="username">
-    </div>
-    <div class="valid" *ngIf="form.controls['user'].dirty && form.controls['user'].valid">
-      Good
-    </div>
-    <div class="invalid" *ngIf="form.controls['user'].dirty && form.controls['user'].errors?.['required']">
-      Username is required. 
-    </div>
-    <div class="input-container col-md-12">
-      <label for="name" class="form-label">First Name: </label>
-      <input formControlName="name" type="text" class="form-control" id="name">
-    </div>
-    <div class="valid" *ngIf="form.controls['name'].dirty && form.controls['name'].valid">
-      Good
-    </div>
-    <div class="invalid" *ngIf="form.controls['name'].dirty && form.controls['name'].errors?.['required']">
-     First name is required.
-    </div>
-    <div class="input-container col-md-12">
-      <label for="lastname" class="form-label">Last Name: </label>
-      <input formControlName="lastname" type="text" class="form-control" id="lastname">
-    </div>
-    <div class="valid" *ngIf="form.controls['lastname'].dirty && form.controls['lastname'].valid">
-      Good
-    </div>
-    <div class="invalid" *ngIf="form.controls['lastname'].dirty && form.controls['lastname'].errors?.['required']">
-      Last name is required.
-    </div>
-    <div class="input-container col-md-12">
-      <label for="grade" class="form-label">Grade: </label>
-      <input formControlName="grade" type="text" class="form-control" id="grade">
-    </div>
-    <div class="valid" *ngIf="form.controls['grade'].dirty && form.controls['grade'].valid">
-      Good
-    </div>
-    <div class="invalid" *ngIf="form.controls['grade'].dirty &&form.controls['grade'].errors?.['required']">
-      You must enter a value.
-    </div>
-    <div class="invalid" *ngIf="form.controls['grade'].dirty && (form.controls['grade'].errors?.['pattern'] || form.controls['grade'].errors?.['minlength'] || form.controls['grade'].errors?.['maxlength'])">
-      This is not a valid grade. It must be a number between 0-20.
-    </div>
-    <div class="input-container col-md-12">
-      <label for="inputEmail4" class="form-label">Email: </label>
-      <input formControlName="email" type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="valid" class="valid" *ngIf="form.controls['email'].dirty && form.controls['email'].valid">
-      Good
-    </div>
-    <div class="invalid" *ngIf="form.controls['email'].dirty && form.controls['email'].errors?.['required']">
-      Email is required.
-    </div>
-    <div class="invalid" *ngIf="form.controls['email'].dirty && form.controls['email'].errors?.['pattern']">
-      This is not a valid email.
-    </div>
-    <div class="col-12 btn-container">
+  <form class="form" [formGroup]="form" (ngSubmit)="AddStudent()">
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>User</mat-label>
+      <input matInput formControlName="user">
+      <mat-error>Username required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error>Name required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastname">
+      <mat-error>Last name required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Grade: 0 - 20</mat-label>
+      <input matInput formControlName="grade">
+      <mat-error *ngIf="this.form.controls['grade'].hasError('required')">Grade required</mat-error>
+      <mat-error *ngIf="!this.form.controls['grade'].hasError('required')">Enter a valid grade</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="this.form.controls['email'].hasError('required')">Email required</mat-error>
+      <mat-error *ngIf="!this.form.controls['email'].hasError('required')">Enter a valid email</mat-error>
+    </mat-form-field>
+    <div class="btn-container" mat-dialog-actions>
       <button type="submit" mat-raised-button  class="form-btn" [disabled]="form.invalid">Add student</button>
     </div>
   </form>

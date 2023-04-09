@@ -26,6 +26,8 @@
   min-height: 92vh;
   width: 100vw;
   padding-top: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .mat-drawer-content {

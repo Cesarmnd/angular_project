@@ -1,8 +1,7 @@
 .modal-title {
   text-align: center;
   margin-top: 25px;
-  font-size: 25px;
-  color: #fff;
+  font-size: 30px;
 }
 
 .form {
@@ -12,8 +11,8 @@
 }
 
 .form-container {
-  margin: 50px;
-  width: 450px;
+  margin: 20px;
+  width: 400px;
 }
 
 .input-container {
@@ -27,27 +26,22 @@
   width: fit-content;
 }
 
-input {
+.input {
   width: 70%;
 }
 
 .btn-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .form-btn {
   background-color: #2bac2b;
+  color: #fff;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.valid {
-  color: rgb(31, 153, 31);
-  margin: 0;
-  font-weight: bolder;
+.form-btn:disabled {
+  background-color: #88be88;
 }
-
-.invalid {
-  color: #cf0e0e;
-  margin: 0;
-  font-weight: bolder;
-}
-

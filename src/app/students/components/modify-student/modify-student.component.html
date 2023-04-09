@@ -1,26 +1,33 @@
 <h1 mat-dialog-title class="modal-title">Modify student</h1>
 <div mat-dialog-content class="form-container">
   <form [formGroup]="form" class="form" (ngSubmit)="saveChanges()">
-      <div class="input-container">
-        <label for="user">User: </label>
-        <input class="form-control" type="text" placeholder="User" formControlName="user" name="user">
-      </div>
-      <div class="input-container">
-        <label for="name">Name: </label>
-        <input class="form-control" type="text" placeholder="Name" formControlName="name" name="name">
-      </div>
-      <div class="input-container">
-        <label for="lastname">Last name: </label>
-        <input class="form-control" type="text" placeholder="Last Name" formControlName="lastname" name="lastname">
-      </div>
-      <div class="input-container">
-        <label for="grade">Grade: </label>
-        <input class="form-control" type="text" placeholder="Grade" formControlName="grade" name="grade">
-      </div>
-      <div class="input-container">
-        <label for="email">Email: </label>
-        <input class="form-control" type="text" placeholder="Email" formControlName="email" name="email">
-    </div>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>User</mat-label>
+      <input matInput formControlName="user">
+      <mat-error>Username required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error>Name required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastname">
+      <mat-error>Last name required</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Grade: 0 - 20</mat-label>
+      <input matInput formControlName="grade">
+      <mat-error *ngIf="this.form.controls['grade'].hasError('required')">Grade required</mat-error>
+      <mat-error *ngIf="!this.form.controls['grade'].hasError('required')">Enter a valid grade</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="this.form.controls['email'].hasError('required')">Email required</mat-error>
+      <mat-error *ngIf="!this.form.controls['email'].hasError('required')">Enter a valid email</mat-error>
+    </mat-form-field>
     <div class="btn-container" mat-dialog-actions >
       <button type="submit" mat-raised-button  class="form-btn" [disabled]="form.invalid">Save</button>
     </div>

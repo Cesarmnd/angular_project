@@ -1,15 +1,23 @@
 <h1 class="list-title">User List</h1>
 <ng-container *ngIf="sesion$ | async as sesion">
-  <div class="bnt-container">
-    <button *ngIf="sesion.activeUser?.admin" class="add-btn" mat-flat-button color="accent" (click)="add()">
-      Add user
-    </button>
+  <div class="filter-container">
+    <mat-form-field class="filter">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search user..." #input>
+    </mat-form-field>
+    <div class="btn-container">      
+      <button *ngIf="sesion.activeUser?.admin" class="add-btn" mat-flat-button color="accent" (click)="add()">
+        Add user
+      </button>
+    </div>
   </div>
 </ng-container>
+
 <div class="container">
   <div *ngIf="loading$ | async">
   <mat-spinner></mat-spinner>
 </div>
+
 <ng-container *ngIf="sesion$ | async as sesion">
   <div class="container-table">
     <table mat-table [dataSource]="datasource" >

@@ -1,5 +1,4 @@
 .container-table {
-  width: 85%;
   height: 100%;
   margin-bottom: 20px;
 }
@@ -28,18 +27,32 @@ th {
 }
 
 table {
-  margin-left: 150px;
+  width: 150%;
+  transform: translateX(-15%);
 }
 
-.bnt-container {
+.filter-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 25px 0;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .add-btn {
   background-color: #2bac2b;
   color: #fff;
   margin: 0 auto;
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.filter {
+  width: 60%;
+  align-self: center;
+  justify-self: center;
+}
+
+.btn-container{
+  width: max-content;
+  transform: translateY(-11px);
 }

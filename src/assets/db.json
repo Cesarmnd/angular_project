@@ -22,7 +22,7 @@
   "students": [
     {
       "id": 1,
-      "user": "rebeca253",
+      "user": "rebeca252",
       "name": "Rebeca",
       "lastname": "Estrada",
       "grade": "12",
@@ -31,7 +31,7 @@
     {
       "id": 2,
       "user": "leyla24",
-      "name": "Layla",
+      "name": "Leyla",
       "lastname": "Navarro",
       "grade": "17",
       "email": "leylaln@gmail.com"
@@ -115,6 +115,14 @@
       "lastname": "Niño",
       "grade": "18",
       "email": "cesar@gmail.com"
+    },
+    {
+      "user": "martin25_1",
+      "name": "Martin",
+      "lastname": "Davila",
+      "grade": "19",
+      "email": "martin.d@gmail.com",
+      "id": 15
     }
   ]
 }

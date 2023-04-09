@@ -53,6 +53,15 @@ export class StudentsComponent implements OnInit {
       this.students = students
       this.datasource.data = this.students
     }) // Passing students to table
+
+    this.datasource.filterPredicate = function(data, filter) {
+      return data.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) 
+    }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.datasource.filter = filterValue.trim().toLowerCase();
   }
 
   add() {          
