@@ -1,54 +1,47 @@
 <h1 mat-dialog-title class="modal-title">Modify course</h1>
 <div mat-dialog-content class="form-container">
   <form [formGroup]="form" class="form" (submit)="saveChanges()">
-    <div class="row" class="input-container">
-      <label for="id">ID: </label>
-      <input class="form-control" type="text" formControlName="id" name="id">
-    </div>
 
-    <div class="row" class="input-container">
-      <label for="name">Name: </label>
-      <input class="form-control" type="text" formControlName="name" name="name">
-    </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error>Name required</mat-error>
+    </mat-form-field>
 
-    <div class="row" class="input-container">
-      <label for="teacher">Teacher: </label>
-      <mat-select formControlName="teacher">
-        <mat-option *ngFor="let teacher of teacher$ | async" [value]="teacher"> {{ teacher.name }} </mat-option>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Teacher</mat-label>
+      <mat-select formControlName="teacher" required>
+        <mat-option *ngFor="let teacher of teacher$ | async" [value]="teacher.id"> {{ teacher.name }} </mat-option>
       </mat-select>
-    </div>
+      <mat-error>Please choose a teacher</mat-error>
+    </mat-form-field>
 
-    <div class="row" class="input-container">
-      <label for="time">Duration: </label>
-      <input class="form-control" type="text" formControlName="time" name="time">
-    </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Image</mat-label>
+      <input matInput formControlName="img" >
+      <mat-error>Please enter a valid URL</mat-error>
+    </mat-form-field>
 
-    <div class="row" class="input-container">
-      <label for="img">Image: </label>
-      <input class="form-control" type="text" formControlName="img" name="img">
-    </div>
-
-    <div class="row" class="input-container">
-      <label for="start">Start: </label>
-      <input class="form-control" matInput [matDatepicker]="startDate" formControlName="startDate" name="start">
-      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Start</mat-label>
+      <input matInput [matDatepicker]="startDate" formControlName="startDate" name="start" placeholder="mm/dd/yy">
+      <mat-datepicker-toggle matSuffix [for]="startDate" disabled="false"></mat-datepicker-toggle>
       <mat-datepicker #startDate></mat-datepicker>
-    </div>
+      <mat-error>You must enter a valid date</mat-error>
+    </mat-form-field>
 
-    <div class="row" class="input-container">
-      <label for="end">End: </label>
-      <input class="form-control" matInput [matDatepicker]="endDate" formControlName="endDate" name="end">
-      <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>End</mat-label>
+      <input matInput [matDatepicker]="endDate" formControlName="endDate" name="end" placeholder="mm/dd/yy">
+      <mat-datepicker-toggle matSuffix [for]="endDate" ></mat-datepicker-toggle>
       <mat-datepicker #endDate></mat-datepicker>
-    </div>
+      <mat-error>You must enter a valid date</mat-error>
+    </mat-form-field>
 
-    <div class="row" class="input-container">
-      <label for="sub">Suscription: </label>
-      <mat-slide-toggle formControlName="open" name="sub" color="warn">Open subscription</mat-slide-toggle>
-    </div>
+    <mat-slide-toggle formControlName="open" name="sub" color="warn">Open subscription</mat-slide-toggle>
 
     <div class="btn-container" mat-dialog-actions>
-      <button mat-flat-button color="accent" type="submit" class="form-btn">Save</button>
+      <button mat-flat-button color="accent" type="submit" class="form-btn" [disabled]="form.invalid">Save</button>
     </div>
   </form>
 </div>

@@ -14,8 +14,19 @@
     <br>
     <button type="submit" class="form-btn mt-4" mat-button color="accent" [disabled]="form.invalid">Login</button>
   </form>
-  <div class="mt-3">
-    <p>Admin => user: admin / pass: admin</p>
-    <p>Guest => user: user / pass: user</p>
+  <div class="user-hint mt-5">
+    <h3 class="hint-title">Default user list</h3>
+    <p class="admin">Admin</p>
+    <mat-icon class="admin-arrow">keyboard_arrow_right</mat-icon>
+    <p class="admin-hint">
+      user: admin <br>
+      pass: admin
+    </p>
+    <p class="guest">Guest</p> 
+    <mat-icon class="user-arrow">keyboard_arrow_right</mat-icon>
+    <p class="guest-hint">
+      user: user <br>
+      pass: user
+    </p>
   </div>
 </section>

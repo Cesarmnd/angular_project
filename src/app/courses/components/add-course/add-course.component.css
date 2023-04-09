@@ -2,11 +2,7 @@
   text-align: center;
   margin-top: 25px;
   font-size: 25px;
-}
-
-.form-container {
-  margin: 50px;
-  width: 450px;
+  color: #fff;
 }
 
 .form {
@@ -15,38 +11,48 @@
   text-align: center;
 }
 
-.input-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px;
+.form-container {
+  margin: 50px;
+  width: 450px;
 }
+
+.input-container {
+  width: 70%;
+}
+
 
 .label  {
   width: fit-content;
 }
 
 input {
-  width: 70%;
+  width: 100%;
 }
 
 .btn-container {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .form-btn {
   background-color: #2bac2b;
   color: #fff;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.form-btn:disabled {
+  background-color: #88be88;
 }
 
 .valid {
-  color: green;
-  padding: 5px 20px;
+  color: rgb(31, 153, 31);
+  margin: 0;
+  font-weight: bolder;
 }
 
 .invalid {
-  color: red;
-  padding: 5px;
+  color: #cf0e0e;
   margin: 0;
+  font-weight: bolder;
 }
+

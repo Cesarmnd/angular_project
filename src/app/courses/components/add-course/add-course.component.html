@@ -1,68 +1,46 @@
 <h1 mat-dialog-title class="modal-title">Add course</h1>
 <div mat-dialog-content class="form-container">
   <form [formGroup]="form" class="form" (ngSubmit)="addCourse()">
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error>Name required</mat-error>
+    </mat-form-field>
 
-      <div class="row" class="input-container">
-        <label for="name">Name: </label>
-        <input class="form-control" type="text" formControlName="name" name="name" placeholder="Name">
-      </div>
-      <div class="invalid" *ngIf="form.controls['name'].touched && form.controls['name'].errors?.['required']">
-        Name is required. 
-      </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Teacher</mat-label>
+      <mat-select formControlName="teacher" required>
+        <mat-option *ngFor="let teacher of teacher$ | async" [value]="teacher"> {{ teacher.name }} </mat-option>
+      </mat-select>
+      <mat-error>Please choose a teacher</mat-error>
+    </mat-form-field>
 
-      <div class="row" class="input-container">
-        <label for="teacher">Teacher: </label>
-        <mat-select formControlName="teacher">
-          <mat-option *ngFor="let teacher of teacher$ | async" [value]="teacher"> {{ teacher.name }} </mat-option>
-        </mat-select>
-      </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Image</mat-label>
+      <input matInput formControlName="img" >
+      <mat-error>Please enter a valid URL</mat-error>
+    </mat-form-field>
 
-      <div class="row" class="input-container">
-        <label for="time">Duration: </label>
-        <input class="form-control" type="text" formControlName="time" name="time" placeholder="Time">
-      </div>
-      <div class="invalid" *ngIf="form.controls['time'].touched && form.controls['time'].errors?.['required']">
-        This value is required 
-      </div>
-      <div class="invalid" *ngIf="form.controls['time'].dirty && form.controls['time'].errors?.['maxlength']">
-        Time duration must be less than 12 months
-      </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>Start</mat-label>
+      <input matInput [matDatepicker]="startDate" formControlName="startDate" name="start" placeholder="mm/dd/yy">
+      <mat-datepicker-toggle matSuffix [for]="startDate" disabled="false"></mat-datepicker-toggle>
+      <mat-datepicker #startDate></mat-datepicker>
+      <mat-error>You must enter a valid date</mat-error>
+    </mat-form-field>
 
-      <div class="row" class="input-container">
-        <label for="img">Image: </label>
-        <input class="form-control" type="text" formControlName="img" name="img" placeholder="Image">
-      </div>
-      <div class="invalid" *ngIf="form.controls['img'].touched && form.controls['img'].errors?.['required']">
-        Please, enter a valid URL
-      </div>
+    <mat-form-field class="input-container" appearance="fill">
+      <mat-label>End</mat-label>
+      <input matInput [matDatepicker]="endDate" formControlName="endDate" name="end" placeholder="mm/dd/yy">
+      <mat-datepicker-toggle matSuffix [for]="endDate" ></mat-datepicker-toggle>
+      <mat-datepicker #endDate></mat-datepicker>
+      <mat-error>You must enter a valid date</mat-error>
+    </mat-form-field>
 
-      <div class="row" class="input-container">
-        <label for="start">Start: </label>
-        <input class="form-control" matInput [matDatepicker]="startDate" formControlName="startDate" name="start" placeholder="mm/dd/yy" >
-        <mat-datepicker-toggle matSuffix [for]="startDate" disabled="false"></mat-datepicker-toggle>
-        <mat-datepicker #startDate></mat-datepicker>
-      </div>
-      <div class="invalid" *ngIf="form.controls['startDate'].touched && form.controls['startDate'].errors?.['required']">
-        You must enter a valid date
-      </div>
-  
-      <div class="row" class="input-container">
-        <label for="end">End: </label>
-        <input class="form-control" matInput [matDatepicker]="endDate" formControlName="endDate" name="end" placeholder="mm/dd/yy">
-        <mat-datepicker-toggle matSuffix [for]="endDate" ></mat-datepicker-toggle>
-        <mat-datepicker #endDate></mat-datepicker>
-      </div>
-      <div class="invalid" *ngIf="form.controls['endDate'].touched && form.controls['endDate'].errors?.['required']">
-        You must enter a valid date
-      </div>
-  
-      <div class="row" class="input-container">
-        <label for="sub">Suscription: </label>
-        <mat-slide-toggle formControlName="open" name="sub" color="warn">Open subscription</mat-slide-toggle>
-      </div>
-  
-      <div class="btn-container" mat-dialog-actions>
-        <button mat-flat-button color="accent" type="submit" class="form-btn" [disabled]="form.invalid">Add</button>
-      </div>
+    <mat-slide-toggle formControlName="open" name="sub" color="warn">Open subscription</mat-slide-toggle>
+
+    <div class="btn-container" mat-dialog-actions>
+      <button mat-flat-button color="accent" type="submit" class="form-btn" [disabled]="form.invalid">Add</button>
+    </div>
   </form>
 </div>

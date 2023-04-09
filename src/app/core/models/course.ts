@@ -1,7 +1,7 @@
 import { teacher } from "./teacher";
 
 export interface Course {
-  id: string,
+  id?: string,
   name: string,
   img: string,
   teacher: teacher ,
