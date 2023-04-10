@@ -39,7 +39,6 @@ export class ModifyUserComponent implements OnInit{
       pass: this.form.value.pass,
       admin: this.form.value.admin,
     }
-    console.log(user)
     this.store.dispatch(modifyUserState({user}));
     this.dialogRef.close();
   }

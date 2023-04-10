@@ -56,7 +56,6 @@ export class ModifyCourseComponent implements OnInit {
       endDate: this.form.value.endDate,
       open: this.form.value.open
     }
-    console.log(course)
     this.store.dispatch(modifyCourseState({course}))
     this.dialogRef.close(course);
   } 
